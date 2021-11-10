@@ -40,7 +40,7 @@ const NavBar = () => {
   }, []);
 
   return (
-    <nav className="nav-bar w-full h-16 bg-white dark:bg-gray-800 sticky top-0 left-0 right-0">
+    <nav className="nav-bar w-full h-16 bg-white dark:bg-gray-900 sticky top-0 left-0 right-0 z-30">
       <div className="h-full flex flex-row gap-4 container">
         <div className="h-full lg:flex-1 flex flex-row items-center justify-start">
           <Link href="/" passHref>
@@ -92,7 +92,7 @@ const NavBar = () => {
             isActive={darkMode}
             onClick={() => setDarkMode(!darkMode)}
           />
-          <button className="flex h-10 w-32 rounded-lg texts items-center justify-center text-white bg-primary-500 font-semibold hover:bg-primary-700 active:bg-primary-800 transition-colors">
+          <button className="hidden md:flex h-10 w-32 rounded-lg texts items-center justify-center text-white bg-primary-500 font-semibold hover:bg-primary-700 active:bg-primary-800 transition-colors">
             Let's Talk
           </button>
           <NavIconButton
