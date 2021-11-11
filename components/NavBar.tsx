@@ -54,24 +54,24 @@ const NavBar = () => {
         >
           <ul className="flex flex-col md:flex-row h-full items-center justify-start w-full pt-20 md:pt-0">
             <NavMenuButton
-              name="About"
-              href="/#about"
-              isActive={router.asPath === "/#about"}
-            />
-            <NavMenuButton
               name="Projects"
-              href="/#projects"
-              isActive={router.asPath === "/#projects"}
+              href="/projects"
+              isActive={router.asPath === "/projects"}
             />
             <NavMenuButton
               name="Blogs"
-              href="/#blogs"
-              isActive={router.asPath === "/#blogs"}
+              href="/blogs"
+              isActive={router.asPath === "/blogs"}
+            />
+            <NavMenuButton
+              name="About"
+              href="/about"
+              isActive={router.asPath === "/about"}
             />
             <NavMenuButton
               name="Contact Me"
-              href="/#contact"
-              isActive={router.asPath === "/#contact"}
+              href="/contact"
+              isActive={router.asPath === "/contact"}
             />
           </ul>
         </div>

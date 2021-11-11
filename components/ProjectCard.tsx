@@ -3,15 +3,15 @@ import React from "react";
 import Link from "next/link";
 import IconButton from "./IconButton";
 
-const ProjectCard = (props: { isEven?: boolean }) => {
-  const { isEven } = props;
+const ProjectCard = (props: { isEven?: boolean; compact?: boolean }) => {
+  const { isEven, compact } = props;
   return (
-    <article className="group w-full rounded-3xl overflow-visible grid grid-cols-5 lg:gap-4 items-center">
+    <article className="group w-full rounded-3xl overflow-visible grid grid-cols-5  items-center">
       <Link href="#" passHref>
         <a
-          className={`col-span-5 lg:col-span-3 overflow-hidden rounded-2xl lg:rounded-3xl ${
+          className={`overflow-hidden rounded-2xl lg:rounded-3xl ${
             isEven ? "lg:order-2" : ""
-          }`}
+          } ${compact ? "col-span-5" : "col-span-5 lg:col-span-3"}`}
           style={{ aspectRatio: "16/9" }}
         >
           <img
@@ -23,9 +23,11 @@ const ProjectCard = (props: { isEven?: boolean }) => {
       </Link>
 
       <div
-        className={`col-span-5 lg:col-span-2 flex justify-center flex-col md:px-4 py-4 ${
-          isEven ? "lg:items-end lg:text-right" : "text-left items-start"
-        }`}
+        className={`flex justify-center flex-col md:px-4 py-4 ${
+          !isEven && !compact
+            ? "lg:items-end lg:text-right"
+            : "text-left items-start"
+        } ${compact ? "col-span-5" : "col-span-5 lg:col-span-2"}`}
       >
         <Link href="#" passHref>
           <a className="text-2xl lg:text-3xl font-bold">
