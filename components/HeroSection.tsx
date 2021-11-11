@@ -5,8 +5,8 @@ const HeroSection = () => {
   const emailAddress = useRef("sayhi@rohid.dev");
 
   return (
-    <section>
-      <div className="container py-6 lg:py-32 flex flex-col-reverse lg:flex-row items-center">
+    <section id="about">
+      <div className="container py-6 lg:py-32 flex flex-col-reverse lg:flex-row items-center gap-4">
         <div className="flex-1 flex flex-col justify-center items-center lg:items-start lg:text-left text-center">
           <p className="text-lg">Hi, there 👋</p>
           <h1 className="font-medium text-4xl mb-4">
@@ -32,7 +32,7 @@ const HeroSection = () => {
             </div>
           </div>
         </div>
-        <div className="lg:flex-1 w-full relative h-[20rem] md:h-[24rem] overflow-visible scale-75 md:scale-100 select-none">
+        <div className="lg:flex-1 w-full relative h-[20rem] md:h-[24rem] overflow-visible scale-75 lg:scale-100 select-none">
           <div className="absolute inset-1/2 -translate-x-48 sm:-translate-x-44 translate-y-6 w-36 h-36 sm:w-40 sm:h-40 bg-white dark:bg-gray-900 shadow-lg flex items-center justify-center rounded-2xl">
             <span className="text-[4rem] sm:text-[5rem]">🏋️</span>
           </div>

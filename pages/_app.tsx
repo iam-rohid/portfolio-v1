@@ -1,4 +1,5 @@
 import "tailwindcss/tailwind.css";
+import Footer from "../components/Footer";
 import NavBar from "../components/NavBar";
 import "../styles/index.scss";
 
@@ -7,6 +8,7 @@ const MyApp = ({ Component, pageProps }) => {
     <div>
       <NavBar />
       <Component {...pageProps} />
+      <Footer />
     </div>
   );
 };

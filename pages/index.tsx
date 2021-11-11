@@ -1,10 +1,15 @@
 import React from "react";
-import { DuplicateIcon } from "@heroicons/react/outline";
+import BlogsSection from "../components/BlogsSection";
 import HeroSection from "../components/HeroSection";
+import ProjectCard from "../components/ProjectCard";
+import ProjectsSection from "../components/ProjectsSection";
+
 const HomePage = () => {
   return (
     <div className="">
       <HeroSection />
+      <ProjectsSection />
+      <BlogsSection />
     </div>
   );
 };
