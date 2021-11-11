@@ -3,19 +3,26 @@ import React from "react";
 import Link from "next/link";
 import IconButton from "./IconButton";
 
-const ProjectCard = () => {
+const ProjectCard = (props: { isEven?: boolean }) => {
+  const { isEven } = props;
   return (
-    <div
-      className="group relative w-full rounded-2xl overflow-visible"
-      style={{ aspectRatio: `16/9` }}
-    >
-      <img
-        src="\assets\thumbnails\1.png"
-        alt="thumbnail"
-        className="w-full h-full overflow-hidden object-cover rounded-3xl group-hover:scale-90 scale-90 lg:scale-100 group-hover:brightness-50 transition-all duration-300"
-      />
+    <article className="group w-full rounded-3xl overflow-visible grid grid-cols-12 lg:gap-4 items-center">
+      <Link href="#" passHref>
+        <a
+          className={`col-span-12 md:col-span-6 lg:col-span-7 flex items-center justify-center overflow-hidden rounded-3xl ${
+            isEven ? "md:order-2" : ""
+          }`}
+          style={{ aspectRatio: "16/9" }}
+        >
+          <img
+            src="\assets\thumbnails\1.png"
+            alt="thumbnail"
+            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+          />
+        </a>
+      </Link>
 
-      <div className="group-hover:opacity-100 opacity-100 lg:opacity-0 group-hover:pointer-events-auto pointer-events-none w-4/5 bg-white dark:bg-gray-800 shadow-xl rounded-2xl absolute bottom-0 translate-y-4 lg:translate-y-12 group-hover:translate-y-4 transition-all duration-300 z-10 left-1/2 -translate-x-1/2 p-4">
+      <div className="col-span-12 md:col-span-6 lg:col-span-5 flex items-start justify-center flex-col p-4">
         <Link href="#" passHref>
           <a className="text-2xl md:text-3xl font-bold">
             This is a project card
@@ -52,7 +59,7 @@ const ProjectCard = () => {
           />
         </div>
       </div>
-    </div>
+    </article>
   );
 };
 

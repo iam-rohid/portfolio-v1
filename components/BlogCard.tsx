@@ -5,7 +5,7 @@ const BlogCard = () => {
   return (
     <Link href="#" passHref>
       <a>
-        <article className="group w-full rounded-3xl overflow-hidden  hover:shadow-xl shadow-none transition-all duration-300 bg-white dark:bg-gray-900 dark:hover:bg-gray-800">
+        <article className="group w-full rounded-3xl overflow-hidden">
           <div
             style={{ aspectRatio: "16/9" }}
             className="w-full object-cover rounded-3xl overflow-hidden"

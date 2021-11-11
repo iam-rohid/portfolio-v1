@@ -10,8 +10,6 @@ const BlogsSection = () => {
         <BlogCard />
         <BlogCard />
         <BlogCard />
-        <BlogCard />
-        <BlogCard />
       </div>
     </section>
   );
