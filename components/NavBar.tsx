@@ -2,45 +2,35 @@ import React, { useEffect, useState } from "react";
 import { MenuIcon, MoonIcon, SunIcon, XIcon } from "@heroicons/react/outline";
 import Link from "next/link";
 import { useRouter } from "next/router";
-
-const ThemeKey = "THEME";
+import { useTheme } from "../hooks/useTheme";
 
 const NavBar = () => {
-  const [darkMode, setDarkMode] = useState<boolean>(null);
   const [showSideBar, setShowSideBar] = useState(false);
-
   const router = useRouter();
+  const { isDark, setIsDark } = useTheme();
+  const [isAtTop, setIsAtTop] = useState(true);
 
-  useEffect(() => {
-    document.body.classList.remove("overflow-hidden");
-    if (showSideBar) {
-      document.body.classList.add("overflow-hidden");
+  const onScrollChange = () => {
+    if (window.scrollY === 0 && !isAtTop) {
+      setIsAtTop(true);
     }
-  }, [showSideBar]);
-
-  useEffect(() => {
-    if (!window || darkMode === null) return;
-    document.documentElement.classList.remove("dark");
-    if (darkMode) {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem(ThemeKey, "dark");
-    } else {
-      localStorage.setItem(ThemeKey, "light");
+    if (window.scrollY !== 0 && isAtTop) {
+      setIsAtTop(false);
     }
-  }, [darkMode]);
-
+  };
   useEffect(() => {
-    const theme = localStorage.getItem(ThemeKey);
-    const isDark =
-      theme === undefined
-        ? window.matchMedia("(prefers-color-scheme: dark)").matches
-        : theme === "dark";
-    console.log(theme);
-    setDarkMode(isDark);
-  }, []);
-
+    document.addEventListener("scroll", onScrollChange);
+    return () => {
+      document.removeEventListener("scroll", onScrollChange);
+    };
+  }, [isAtTop]);
   return (
-    <nav className="nav-bar w-full h-16 bg-white dark:bg-gray-900 sticky top-0 left-0 right-0 z-30">
+    <nav
+      className={`nav-bar w-full h-14 md:h-16 sticky left-0 right-0 z-30 top-0 duration-300 ${
+        isAtTop ? "bg-transparent" : "bg-white dark:bg-gray-900"
+      }`}
+      style={{ transitionProperty: "background-color" }}
+    >
       <div className="h-full flex flex-row gap-4 container">
         <div className="h-full lg:flex-1 flex flex-row items-center justify-start">
           <Link href="/" passHref>
@@ -85,16 +75,16 @@ const NavBar = () => {
             />
           </ul>
         </div>
-        <div className="md:flex-1 h-16 flex flex-row items-center justify-end gap-2 fixed md:static top-0 right-0 px-4">
+        <div className="md:flex-1 h-14 md:h-16 flex flex-row items-center justify-end gap-2 fixed md:static top-0 right-0 px-4">
           <NavIconButton
             icon={<SunIcon className="w-6 h-6" />}
             activeIcon={<MoonIcon className="w-6 h-6" />}
-            isActive={darkMode}
-            onClick={() => setDarkMode(!darkMode)}
+            isActive={isDark}
+            onClick={() => setIsDark(!isDark)}
           />
-          <button className="hidden md:flex h-10 w-32 rounded-lg texts items-center justify-center text-white bg-primary-500 font-semibold hover:bg-primary-700 active:bg-primary-800 transition-colors">
+          {/* <button className="hidden md:flex h-10 w-32 rounded-lg texts items-center justify-center text-white bg-primary-500 font-semibold hover:bg-primary-700 active:bg-primary-800 transition-colors">
             Let's Talk
-          </button>
+          </button> */}
           <NavIconButton
             icon={<MenuIcon className="w-6 h-6" />}
             activeIcon={<XIcon className="w-6 h-6" />}
@@ -123,7 +113,7 @@ const NavMenuButton = (props: {
         className={`lg:h-full py-6 lg:py-0 px-6 w-full md:w-auto flex items-center justify-center relative ${className}`}
       >
         <li
-          className={`transition-all duration-300 whitespace-nowrap ${
+          className={`transition-opacity duration-300 whitespace-nowrap ${
             isActive ? "opacity-100" : "opacity-70"
           }`}
         >

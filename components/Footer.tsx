@@ -6,8 +6,6 @@ const Footer = () => {
 
   const fetchGithubProfile = async () => {
     const res = await axios.get("https://api.github.com/users/rohid-hub");
-
-    console.log(res);
     setGithubProfile(res.data);
   };
 

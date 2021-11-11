@@ -4,6 +4,24 @@
   .container {
     @apply w-full max-w-7xl mx-auto px-4;
   }
+  .prose {
+    @apply text-gray-900 dark:text-white;
+
+    p,
+    li,
+    ul,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      @apply text-gray-900 dark:text-white;
+    }
+    a {
+      @apply text-primary-500 hover:text-primary-600;
+    }
+  }
 }
 html {
   scroll-padding: 3rem;
@@ -11,4 +29,8 @@ html {
 }
 .dark {
   color-scheme: dark;
+}
+.vertical-r1 {
+  -webkit-writing-mode: vertical-rl;
+  writing-mode: vertical-rl;
 }

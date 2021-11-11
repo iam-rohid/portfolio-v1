@@ -3,9 +3,9 @@ import ProjectCard from "./ProjectCard";
 
 const ProjectsSection = () => {
   return (
-    <section className="container py-14" id="projects">
+    <section className="container" id="projects">
       <h1 className="text-center text-3xl font-black">Some of my Projects</h1>
-      <div className="grid grid-cols-1 lg:grid-cols-1 py-14 gap-12">
+      <div className="flex flex-col pt-14 gap-12">
         <ProjectCard />
         <ProjectCard isEven />
         <ProjectCard />

@@ -6,11 +6,11 @@ import IconButton from "./IconButton";
 const ProjectCard = (props: { isEven?: boolean }) => {
   const { isEven } = props;
   return (
-    <article className="group w-full rounded-3xl overflow-visible grid grid-cols-12 lg:gap-4 items-center">
+    <article className="group w-full rounded-3xl overflow-visible grid grid-cols-5 lg:gap-4 items-center">
       <Link href="#" passHref>
         <a
-          className={`col-span-12 md:col-span-6 lg:col-span-7 flex items-center justify-center overflow-hidden rounded-3xl ${
-            isEven ? "md:order-2" : ""
+          className={`col-span-5 lg:col-span-3 overflow-hidden rounded-2xl lg:rounded-3xl ${
+            isEven ? "lg:order-2" : ""
           }`}
           style={{ aspectRatio: "16/9" }}
         >
@@ -22,24 +22,21 @@ const ProjectCard = (props: { isEven?: boolean }) => {
         </a>
       </Link>
 
-      <div className="col-span-12 md:col-span-6 lg:col-span-5 flex items-start justify-center flex-col p-4">
+      <div
+        className={`col-span-5 lg:col-span-2 flex justify-center flex-col md:px-4 py-4 ${
+          isEven ? "lg:items-end lg:text-right" : "text-left items-start"
+        }`}
+      >
         <Link href="#" passHref>
-          <a className="text-2xl md:text-3xl font-bold">
+          <a className="text-2xl lg:text-3xl font-bold">
             This is a project card
           </a>
         </Link>
 
-        <p className="hidden sm:inline-block mt-2">
+        <p className="text-sm md:text-base mt-3 leading-relaxed">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, a. Nisi
           illum ipsa perferendis nemo.
         </p>
-        <ul className="flex flex-row gap-2 flex-wrap mt-2 opacity-50">
-          <li>#react</li>
-          <li>#node</li>
-          <li>#tailwindcss</li>
-          <li>#firebase</li>
-          <li>#nextjs</li>
-        </ul>
         <div className="mt-4 flex flex-row gap-2 flex-wrap">
           <IconButton icon={<ExternalLinkIcon className="w-6 h-6" />} />
           <IconButton
