@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Create a Next.js project with TypeScript and Tailwindcss (JIT) from scratch!",
+    "excerpt": "Let's create a next.js Project with TypeScript and Tailwindcss from scratch! In this blog post we are going to see how we can create a next js project with",
+    "link": "https://blog.rohid.dev/nextjs-with-typescript-and-tailwindcss",
+    "coverImage": "/assets/thumbnails/nextjs-with-typescript-and-tailwindcss.png",
+    "date": "Published on 30 Oct, 2021"
+  },
+  {
+    "title": "Use TypeScript with next.js",
+    "excerpt": "In this blog, we are going to see how easily we can implement TypeScript into a nextjs project. Are you excited? It's super simple to do trust me",
+    "link": "https://blog.rohid.dev/use-typescript-with-nextjs",
+    "coverImage": "/assets/thumbnails/use-typescript-with-nextjs.png",
+    "date": "Published on Oct 4, 2021"
+  },
+  {
+    "title": "Hello, World! in 10 different languages 🔥🔥",
+    "link": "https://dev.to/rohidhub/hello-world-in-10-different-languages-6ko",
+    "coverImage": "/assets/thumbnails/hello-world-in-10-different-languages.gif",
+    "date": "Published on Aug 5, 2021"
+  }
+]

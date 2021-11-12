@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import React, { Fragment } from "react";
 import "tailwindcss/tailwind.css";
 import Background from "../components/Background";
 import Footer from "../components/Footer";

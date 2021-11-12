@@ -23,6 +23,7 @@ const NavBar = () => {
     return () => {
       document.removeEventListener("scroll", onScrollChange);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isAtTop]);
   return (
     <nav
@@ -69,7 +70,7 @@ const NavBar = () => {
               isActive={router.asPath === "/about"}
             />
             <NavMenuButton
-              name="Contact Me"
+              name="Let's Talk"
               href="/contact"
               isActive={router.asPath === "/contact"}
             />

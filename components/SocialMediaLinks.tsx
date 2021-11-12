@@ -3,7 +3,12 @@ import React from "react";
 const SocialMediaLinks = () => {
   return (
     <div className="fixed bottom-0 left-0 w-20 h-96 flex flex-col items-center justify-end gap-8">
-      <a href="#" target="_blank" className="text-gray-600 dark:text-gray-400">
+      <a
+        href="https://github.com/rohid-hub"
+        target="_blank"
+        className="text-gray-600 dark:text-gray-400 hover:text-primary-500 dark:hover:text-primary-500 hover:-translate-y-2 transition-all duration-300"
+        rel="noreferrer"
+      >
         <svg
           aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"
@@ -16,7 +21,12 @@ const SocialMediaLinks = () => {
           ></path>
         </svg>
       </a>
-      <a href="#" target="_blank" className="text-gray-600 dark:text-gray-400">
+      <a
+        href="https://www.instagram.com/im_rohid/"
+        target="_blank"
+        className="text-gray-600 dark:text-gray-400 hover:text-primary-500 dark:hover:text-primary-500 hover:-translate-y-2 transition-all duration-300"
+        rel="noreferrer"
+      >
         <svg
           aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"
@@ -29,7 +39,12 @@ const SocialMediaLinks = () => {
           ></path>
         </svg>
       </a>
-      <a href="#" target="_blank" className="text-gray-600 dark:text-gray-400">
+      <a
+        href="https://twitter.com/rohid_dev"
+        target="_blank"
+        className="text-gray-600 dark:text-gray-400 hover:text-primary-500 dark:hover:text-primary-500 hover:-translate-y-2 transition-all duration-300"
+        rel="noreferrer"
+      >
         <svg
           aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"
@@ -42,7 +57,12 @@ const SocialMediaLinks = () => {
           ></path>
         </svg>
       </a>
-      <a href="#" target="_blank" className="text-gray-600 dark:text-gray-400">
+      <a
+        href="https://codepen.io/rohid-hub"
+        target="_blank"
+        className="text-gray-600 dark:text-gray-400 hover:text-primary-500 dark:hover:text-primary-500 hover:-translate-y-2 transition-all duration-300"
+        rel="noreferrer"
+      >
         <svg
           aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"

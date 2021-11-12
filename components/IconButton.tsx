@@ -9,7 +9,7 @@ const IconButton = (props: {
   return (
     <button
       onClick={onClick}
-      className={`flex h-10 w-10 rounded-md items-center justify-center hover:bg-gray-100 dark:hover:bg-gray-700 active:bg-gray-200 dark:active:bg-gray-600 ${className}`}
+      className={`flex h-10 w-10 rounded-md items-center justify-center bg-gray-900 dark:bg-white dark:bg-opacity-0 bg-opacity-0 hover:bg-opacity-5 dark:hover:bg-opacity-10 active:bg-opacity-10 dark:active:bg-opacity-20 ${className}`}
     >
       {icon}
     </button>

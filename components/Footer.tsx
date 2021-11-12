@@ -1,5 +1,6 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
+import Link from "next/link";
+import axios from "axios";
 
 const Footer = () => {
   const [githubProfile, setGithubProfile] = useState(null);
@@ -17,32 +18,28 @@ const Footer = () => {
 
   return (
     <footer>
-      <div className="container flex flex-col items-center justify-center py-14">
-        <a href={`https://github.com/${githubProfile.login}`} target="_blank">
+      <div className="container flex flex-col items-center justify-center py-14 gap-2">
+        <p>
+          Designed & Developed by{" "}
+          <Link href={`https://github.com/${githubProfile.login}`} passHref>
+            <a target="_blank" className="font-bold">
+              {githubProfile.name}
+            </a>
+          </Link>
+        </p>
+        <div className="flex flex-row flex-wrap gap-8">
           <p>
-            Designed and Developed by{" "}
-            <span className="font-semibold">{githubProfile.name}</span>
+            <span className="inline-block">Followers</span>
+            <span className="font-bold pl-2">{githubProfile.followers}</span>
           </p>
-        </a>
-        <div className="flex flex-row items-center justify-center gap-2 flex-wrap">
-          <a
-            href="https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Frohid-hub"
-            target="_blank"
-          >
-            <p>Followers {githubProfile.followers}</p>
-          </a>
-          <a
-            href={`https://github.com/${githubProfile.login}?tab=repositories`}
-            target="_blank"
-          >
-            <p>Repositories {githubProfile.public_repos}</p>
-          </a>
-          <a
-            href={`https://gist.github.com/${githubProfile.login}`}
-            target="_blank"
-          >
-            <p>Gists {githubProfile.public_gists}</p>
-          </a>
+          <p>
+            <span className="inline-block">Repositories</span>
+            <span className="font-bold pl-2">{githubProfile.public_repos}</span>
+          </p>
+          <p>
+            <span>Gists</span>
+            <span className="font-bold pl-2">{githubProfile.public_gists}</span>
+          </p>
         </div>
       </div>
     </footer>
