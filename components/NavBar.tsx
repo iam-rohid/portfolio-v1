@@ -35,8 +35,8 @@ const NavBar = () => {
       <div className="h-full flex flex-row gap-4 container">
         <div className="h-full lg:flex-1 flex flex-row items-center justify-start">
           <Link href="/" passHref>
-            <a className="font-bold text-xl h-full items-center justify-center flex">
-              rohid.dev
+            <a className="font-bold text-xl">
+              rohid.dev <span className="text-xs opacity-50">(beta)</span>
             </a>
           </Link>
         </div>
@@ -108,7 +108,7 @@ const NavMenuButton = (props: {
   return (
     <Link href={href} passHref>
       <a
-        className={`lg:h-full py-6 lg:py-0 px-6 w-full md:w-auto flex items-center justify-center relative ${className}`}
+        className={`lg:h-full py-6 lg:py-0 px-6 w-full md:w-auto flex items-center justify-center relative hover:underline ${className}`}
       >
         <li
           className={`transition-opacity duration-300 whitespace-nowrap ${

@@ -47,6 +47,8 @@ const AboutPage = () => {
             className="w-full h-full object-cover rounded-2xl transition-all duration-300 absolute overflow-hidden"
             objectFit="cover"
             layout="fill"
+            loading="eager"
+            priority
           />
         </div>
       </div>

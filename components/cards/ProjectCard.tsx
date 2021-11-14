@@ -33,6 +33,7 @@ const ProjectCard = (props: {
               className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
               objectFit="cover"
               layout="fill"
+              loading="lazy"
             />
           </div>
         </a>
