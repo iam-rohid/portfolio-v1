@@ -36,7 +36,7 @@ const NavBar = () => {
         <div className="h-full lg:flex-1 flex flex-row items-center justify-start">
           <Link href="/" passHref>
             <a className="font-bold text-xl h-full items-center justify-center flex">
-              Rohid
+              rohid.dev
             </a>
           </Link>
         </div>
@@ -76,16 +76,13 @@ const NavBar = () => {
             />
           </ul>
         </div>
-        <div className="md:flex-1 h-14 md:h-16 flex flex-row items-center justify-end gap-2 fixed md:static top-0 right-0 px-4">
+        <div className="md:flex-1 h-14 md:h-16 flex flex-row items-center justify-end gap-2 fixed md:static top-0 right-8">
           <NavIconButton
             icon={<SunIcon className="w-6 h-6" />}
             activeIcon={<MoonIcon className="w-6 h-6" />}
             isActive={isDark}
             onClick={() => setIsDark(!isDark)}
           />
-          {/* <button className="hidden md:flex h-10 w-32 rounded-lg texts items-center justify-center text-white bg-primary-500 font-semibold hover:bg-primary-700 active:bg-primary-800 transition-colors">
-            Let's Talk
-          </button> */}
           <NavIconButton
             icon={<MenuIcon className="w-6 h-6" />}
             activeIcon={<XIcon className="w-6 h-6" />}

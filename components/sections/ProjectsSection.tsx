@@ -17,7 +17,7 @@ const ProjectsSection = (props: { projects: ProjectType[] }) => {
           </a>
         </Link>
       </div>
-      <div className="flex flex-col gap-12">
+      <div className="flex flex-col gap-16">
         {projects.map((project, i) => (
           <ProjectCard project={project} key={i} isEven={i % 2 != 0} />
         ))}
