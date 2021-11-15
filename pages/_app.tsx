@@ -5,12 +5,13 @@ import Footer from "../components/Footer";
 import NavBar from "../components/NavBar";
 import ThemeProvider from "../hooks/useTheme";
 import "../styles/index.scss";
+import "../styles/material-darker.css";
 
 const MyApp = ({ Component, pageProps }) => {
   return (
     <ThemeProvider>
       <Fragment>
-        <Background />
+        {/* <Background /> */}
         <div className="relative">
           <NavBar />
           <Component {...pageProps} />

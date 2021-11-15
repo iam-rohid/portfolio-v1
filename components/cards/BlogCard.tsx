@@ -1,35 +1,38 @@
+/* eslint-disable @next/next/no-img-element */
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { BlogType } from "../../types/blog-type";
+import Tag from "../Tag";
 
 const BlogCard = (props: { blog: BlogType }) => {
   const { blog } = props;
   return (
-    <Link href={blog.link} passHref>
-      <a target="_blank">
-        <article className="w-full rounded-2xl overflow-hidden">
-          <div
-            style={{ aspectRatio: "16/9" }}
-            className="relative w-full object-cover rounded-2xl overflow-hidden"
-          >
-            <Image
-              src={blog.coverImage}
+    <article className="flex flex-col bg-white dark:bg-gray-800 rounded-3xl px-4 group">
+      <div
+        style={{ aspectRatio: "16/9" }}
+        className="relative w-full object-cover rounded-3xl overflow-hidden -translate-y-4 group-hover:-translate-y-8 transition-all duration-300 shadow-lg group-hover:shadow-xl ease-in-out"
+      >
+        <Link href={`/blogs/${blog.slug}`} passHref>
+          <a>
+            <img
+              src={blog.coverPhoto.url}
               alt={`${blog.title} - Thumbnail`}
-              className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
-              objectFit="cover"
-              layout="fill"
-              loading="lazy"
+              className="w-full h-full object-cover"
             />
-          </div>
-          <div className="md:px-4 py-4 text-center">
-            <h1 className="text-2xl md:text-2xl font-bold hover:underline">
-              {blog.title}
-            </h1>
-          </div>
-        </article>
-      </a>
-    </Link>
+          </a>
+        </Link>
+      </div>
+      <div className="px-4 pb-8">
+        <p className="-translate-y-2 text-gray-600 dark:text-gray-300">
+          Published on {new Date(blog.createdAt).toDateString()}
+        </p>
+        <Link href={`/blogs/${blog.slug}`} passHref>
+          <a>
+            <h1 className="text-2xl leading-tight font-bold">{blog.title}</h1>
+          </a>
+        </Link>
+      </div>
+    </article>
   );
 };
 

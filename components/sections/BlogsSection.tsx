@@ -17,7 +17,7 @@ const BlogsSection = (props: { blogs: BlogType[] }) => {
           </a>
         </Link>
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
         {blogs.map((blog, i) => (
           <BlogCard key={i} blog={blog} />
         ))}

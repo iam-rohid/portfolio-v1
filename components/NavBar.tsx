@@ -27,17 +27,13 @@ const NavBar = () => {
   }, [isAtTop]);
   return (
     <nav
-      className={`nav-bar w-full h-14 md:h-16 sticky left-0 right-0 z-30 top-0 duration-300 ${
-        isAtTop ? "bg-transparent" : "bg-white dark:bg-gray-900"
-      }`}
+      className={`nav-bar w-full h-14 md:h-16 sticky left-0 right-0 z-30 top-0 bg-white dark:bg-gray-800`}
       style={{ transitionProperty: "background-color" }}
     >
       <div className="h-full flex flex-row gap-4 container">
         <div className="h-full lg:flex-1 flex flex-row items-center justify-start">
           <Link href="/" passHref>
-            <a className="font-bold text-xl">
-              rohid.dev <span className="text-xs opacity-50">(beta)</span>
-            </a>
+            <a className="font-medium text-xl font-mono">rohid.dev</a>
           </Link>
         </div>
 
@@ -55,24 +51,34 @@ const NavBar = () => {
         >
           <ul className="flex flex-col md:flex-row h-full items-center justify-start w-full pt-20 md:pt-0">
             <NavMenuButton
+              name="Home"
+              href="/"
+              isActive={router.asPath === "/"}
+            />
+            <NavMenuButton
               name="Projects"
               href="/projects"
-              isActive={router.asPath === "/projects"}
+              isActive={router.asPath.startsWith("/projects")}
             />
             <NavMenuButton
               name="Blogs"
               href="/blogs"
-              isActive={router.asPath === "/blogs"}
+              isActive={router.asPath.startsWith("/blogs")}
+            />
+            <NavMenuButton
+              name="Tags"
+              href="/tags"
+              isActive={router.asPath.startsWith("/tags")}
             />
             <NavMenuButton
               name="About"
               href="/about"
-              isActive={router.asPath === "/about"}
+              isActive={router.asPath.startsWith("/about")}
             />
             <NavMenuButton
               name="Let's Talk"
               href="/contact"
-              isActive={router.asPath === "/contact"}
+              isActive={router.asPath.startsWith("/contact")}
             />
           </ul>
         </div>
@@ -108,17 +114,17 @@ const NavMenuButton = (props: {
   return (
     <Link href={href} passHref>
       <a
-        className={`lg:h-full py-6 lg:py-0 px-6 w-full md:w-auto flex items-center justify-center relative hover:underline ${className}`}
+        className={`lg:h-full py-6 lg:py-0 px-5 w-full md:w-auto flex items-center justify-center relative group ${className}`}
       >
         <li
-          className={`transition-opacity duration-300 whitespace-nowrap ${
+          className={`transition-opacity duration-300 whitespace-nowrap group-hover:opacity-100 ${
             isActive ? "opacity-100" : "opacity-70"
           }`}
         >
           {name}
         </li>
         <span
-          className={`h-1 bg-primary-500 rounded-full absolute bottom-0 transition-all duration-300 ${
+          className={`h-1 bg-primary-500 rounded-full absolute bottom-0 transition-all duration-300 mb-2 ${
             isActive ? "w-8" : "w-0"
           }`}
         ></span>

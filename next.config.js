@@ -1,6 +1,5 @@
 module.exports = {
   images: {
-    loader: "imgix",
-    path: "https://rohid.dev/",
+    domains: ["media.graphcms.com"],
   },
 };

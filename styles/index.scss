@@ -4,9 +4,9 @@
   .container {
     @apply w-full max-w-6xl mx-auto px-4 md:px-8;
   }
-  .prose {
+  .prose,
+  .prose-lg {
     @apply text-gray-900 dark:text-white;
-
     p,
     li,
     strong,
@@ -16,11 +16,13 @@
     h3,
     h4,
     h5,
+    code,
+    a,
     h6 {
       @apply text-gray-900 dark:text-white;
     }
-    a {
-      @apply text-primary-500 hover:text-primary-600;
+    pre {
+      @apply rounded-2xl;
     }
   }
 }
@@ -33,4 +35,8 @@ html {
 .vertical-r1 {
   -webkit-writing-mode: vertical-rl;
   writing-mode: vertical-rl;
+}
+
+html {
+  text-rendering: optimizeLegibility;
 }
