@@ -9,11 +9,10 @@ import BlogsSection from "../components/sections/BlogsSection";
 import HeroSection from "../components/sections/HeroSection";
 import ProjectsSection from "../components/sections/ProjectsSection";
 import { BlogsQuery } from "../constants/querys";
-import projects from "../data/projects.json";
 import { BlogType } from "../types/blog-type";
 import { ProjectType } from "../types/project-type";
 
-const HomePage = ({ blogs }) => {
+const HomePage = ({ blogs, projects }) => {
   return (
     <main className="flex flex-col gap-20 md:gap-32 py-14 md:py-32">
       <Head>
@@ -30,7 +29,7 @@ const HomePage = ({ blogs }) => {
 
       <HeroSection />
 
-      <ProjectsSection projects={(projects as ProjectType[]).slice(0, 3)} />
+      <ProjectsSection projects={projects as ProjectType[]} />
 
       <BlogsSection blogs={(blogs as BlogType[]).slice(0, 4)} />
 
@@ -61,17 +60,30 @@ const HomePage = ({ blogs }) => {
 
 export const getStaticProps: GetStaticProps = async () => {
   const {
-    data: { blogs },
+    data: { blogs, projects },
   } = await client.query({
     query: gql`
       query GetData {
         blogs ${BlogsQuery}
+        projects(orderBy: completedAt_DESC, where: {isFeatured: true}) {
+          slug
+          title
+          excerpt
+          isFeatured
+          completedAt
+          liveLink
+          sourceLink
+          coverPhoto {
+            url
+          }
+        }
       }
     `,
   });
   return {
     props: {
       blogs,
+      projects,
     },
   };
 };

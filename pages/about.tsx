@@ -1,18 +1,19 @@
+/* eslint-disable @next/next/no-img-element */
 import React from "react";
 import Head from "next/head";
 
 const AboutPage = () => {
   return (
-    <div className="w-full mx-auto px-4 py-14 max-w-5xl ">
+    <div className="w-full mx-auto px-4 py-16 max-w-5xl ">
       <Head>
         <title>About - Rohid.dev</title>
         <meta name="description" content="About Page" />
       </Head>
 
-      <div>
-        <h3 className="text-center text-3xl font-black">About Me</h3>
+      <div className="mb-16">
+        <h3 className="text-center text-3xl font-black">Blogs</h3>
       </div>
-      <div className="pt-14 flex flex-col-reverse lg:flex-row gap-8 lg:items-start items-center">
+      <div className="flex flex-col-reverse lg:flex-row gap-8 lg:items-start items-center">
         <div className="flex-1 w-full p-4 prose max-w-none">
           <p>
             Hi 👋, My name is <strong>Rohidul Islam Rohid</strong>. I&apos;m

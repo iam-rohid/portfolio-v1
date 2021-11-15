@@ -13,7 +13,9 @@ const TagsPage = ({ tags }) => {
         <title>Tags - Rohid.dev</title>
         <meta name="description" content="All tags form rohid.dev" />
       </Head>
-
+      <div className="mb-16">
+        <h3 className="text-center text-3xl font-black">Tags</h3>
+      </div>
       <ul className="flex flex-row flex-wrap justify-center gap-2">
         {tags.map((tag) => (
           <Tag tag={tag} key={tag.slug} size="lg" />
@@ -30,7 +32,7 @@ export const getStaticProps: GetStaticProps = async () => {
   } = await client.query({
     query: gql`
       query GetData {
-        tags {
+        tags(orderBy: createdAt_DESC) {
           name
           slug
           backgroundColor {

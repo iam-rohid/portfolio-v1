@@ -5,6 +5,7 @@ import { client } from "../../apolloClient";
 import { gql } from "@apollo/client";
 import Markdown from "../../components/Markdown";
 import Head from "next/head";
+import Tag from "../../components/Tag";
 
 const BlogPage = ({ blog }) => {
   return (
@@ -29,10 +30,18 @@ const BlogPage = ({ blog }) => {
           />
         </div>
         <h1 className="text-4xl font-bold">{blog.title}</h1>
-        <p>Published on {new Date(blog.createdAt).toDateString()}</p>
+        <p>
+          Published on{" "}
+          <strong>{new Date(blog.createdAt).toDateString()}</strong>
+        </p>
+        <div className="flex flex-row flex-wrap gap-2">
+          {blog.tags.map((tag) => (
+            <Tag tag={tag} key={tag.slug} size="sm" />
+          ))}
+        </div>
       </header>
       <div className="w-full flex-1 min-w-0 flex flex-row gap-8">
-        <article className="flex-1">
+        <article className="flex-1 min-w-0">
           <Markdown>{blog.body}</Markdown>
         </article>
         <aside className="relative top-0 w-80 hidden lg:block">
@@ -83,15 +92,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
           createdAt
           coverPhoto {
             url
-          }
-          category {
-            slug
-            title
-          }
-          createdBy {
-            id
-            name
-            picture
           }
           tags {
             slug

@@ -1,8 +1,12 @@
 export type ProjectType = {
+  slug: string;
   title: string;
-  date: string;
+  completedAt: string;
   excerpt?: string;
-  coverImage: string;
-  link?: string;
-  repoUrl?: string;
+  body?: string;
+  coverPhoto: {
+    url: string;
+  };
+  liveLink?: string;
+  sourceLink?: string;
 };

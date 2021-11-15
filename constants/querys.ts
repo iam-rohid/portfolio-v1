@@ -2,19 +2,9 @@ export const BlogsQuery = `
 {
   slug
   title
-  excerpt
   createdAt
   coverPhoto {
     url
-  }
-  category {
-    slug
-    title
-  }
-  createdBy {
-    id
-    name
-    picture
   }
   tags {
     slug

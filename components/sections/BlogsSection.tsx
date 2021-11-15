@@ -11,7 +11,7 @@ const BlogsSection = (props: { blogs: BlogType[] }) => {
       <div className="flex flex-row justify-between items-center py-14">
         <h1 className="text-center text-3xl font-black">Blogs</h1>
         <Link href="/blogs" passHref>
-          <a className="h-10 px-4 hover:bg-opacity-10 dark:hover:bg-opacity-10 bg-gray-900 dark:bg-white bg-opacity-0 dark:bg-opacity-0 items-center justify-center flex flex-row rounded-lg gap-2">
+          <a className="h-10 px-4 hover:bg-gray-200 dark:hover:bg-gray-800 items-center justify-center flex flex-row rounded-lg gap-2">
             <p className="whitespace-nowrap">See More</p>
             <ChevronRightIcon className="w-5 h-5" />
           </a>

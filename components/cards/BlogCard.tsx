@@ -24,7 +24,8 @@ const BlogCard = (props: { blog: BlogType }) => {
       </div>
       <div className="px-4 pb-8">
         <p className="-translate-y-2 text-gray-600 dark:text-gray-300">
-          Published on {new Date(blog.createdAt).toDateString()}
+          Published on{" "}
+          <strong>{new Date(blog.createdAt).toDateString()}</strong>
         </p>
         <Link href={`/blogs/${blog.slug}`} passHref>
           <a>

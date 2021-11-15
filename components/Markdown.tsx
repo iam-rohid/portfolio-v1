@@ -5,13 +5,14 @@ import rehypeKatex from "rehype-katex";
 import remarkGfm from "remark-gfm";
 import remarkHighlightjs from "remark-highlight.js";
 import "remark-highlight.js";
+import remarkHtml from "remark-html";
 
 const Markdown = (props: { children: string }) => {
   const md = props.children || "";
   return (
     <ReactMarkdown
       className="prose md:prose-lg max-w-none min-w-0 py-8"
-      remarkPlugins={[remarkMath, remarkGfm, remarkHighlightjs]}
+      remarkPlugins={[remarkMath, remarkGfm, remarkHtml, remarkHighlightjs]}
       rehypePlugins={[rehypeKatex]}
     >
       {md}

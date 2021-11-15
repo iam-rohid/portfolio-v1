@@ -14,6 +14,9 @@ const BLogsPage = ({ blogs }) => {
         <title>Blogs - Rohid.dev</title>
         <meta name="description" content="All blogs form rohid.dev" />
       </Head>
+      <div className="mb-16">
+        <h3 className="text-center text-3xl font-black">Blogs</h3>
+      </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
         {blogs.map((blog: BlogType, i) => (
@@ -31,7 +34,7 @@ export const getStaticProps: GetStaticProps = async () => {
   } = await client.query({
     query: gql`
       query GetData {
-        blogs ${BlogsQuery}
+        blogs(orderBy: createdAt_DESC) ${BlogsQuery}
       }
     `,
   });
