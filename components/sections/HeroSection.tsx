@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import { ChevronRightIcon } from "@heroicons/react/outline";
 const HeroSection = () => {
   return (
     <section>
@@ -18,8 +19,9 @@ const HeroSection = () => {
             Figma. I also do unity 3d mobile game development.
           </p>
           <Link href="/contact" passHref>
-            <a className="px-20 h-14 text-lg bg-gray-900 dark:bg-white dark:bg-opacity-0 bg-opacity-0 hover:bg-opacity-5 dark:hover:bg-opacity-10 active:bg-opacity-10 dark:active:bg-opacity-20 ring-2 ring-gray-900 dark:ring-white rounded-xl font-semibold transition-all duration-150 flex items-center justify-center">
-              Let&apos;s Talk
+            <a className="relative px-24 py-4 rounded-2xl text-xl font-semibold text-white flex flex-row items-center gap-4 bg-gradient-to-tr from-blue-600 to-purple-500 group">
+              <p className="whitespace-nowrap">Let&apos;s Talk</p>
+              <ChevronRightIcon className="w-8 h-8 absolute right-12 group-hover:right-8 opacity-0 group-hover:opacity-100 transition-all duration-200" />
             </a>
           </Link>
         </div>

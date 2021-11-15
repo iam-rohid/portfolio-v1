@@ -1,9 +1,13 @@
 import React from "react";
-import ContactSection from "../components/sections/ContactSection";
-
+import Head from "next/head";
 const ContactPage = () => {
   return (
     <div className="container flex items-center flex-col">
+      <Head>
+        <title>Contact - Rohid.dev</title>
+        <meta name="description" content="Contact Page" />
+      </Head>
+
       <div className="py-14 text-center prose">
         <h1>Hey! Let&apos;s Talk 👋😃</h1>
         <p>

@@ -1,9 +1,14 @@
 import React from "react";
-import Image from "next/image";
+import Head from "next/head";
 
 const AboutPage = () => {
   return (
     <div className="w-full mx-auto px-4 py-14 max-w-5xl ">
+      <Head>
+        <title>About - Rohid.dev</title>
+        <meta name="description" content="About Page" />
+      </Head>
+
       <div>
         <h3 className="text-center text-3xl font-black">About Me</h3>
       </div>

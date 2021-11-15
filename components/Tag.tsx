@@ -12,7 +12,7 @@ const Tag = (props: { tag: TagType; size: "sm" | "md" | "lg" }) => {
             ? "px-2 py-1 rounded-md text-sm"
             : size == "md"
             ? "px-2.5 py-1.5 rounded-lg text-base"
-            : "px-3 py-2 rounded-lg text-lg"
+            : "px-3 py-1.5 rounded-lg text-lg"
         }`}
         style={{
           backgroundColor: tag.backgroundColor

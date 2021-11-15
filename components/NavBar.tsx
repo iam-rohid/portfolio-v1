@@ -3,6 +3,7 @@ import { MenuIcon, MoonIcon, SunIcon, XIcon } from "@heroicons/react/outline";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useTheme } from "../hooks/useTheme";
+import Logo from "./Logo";
 
 const NavBar = () => {
   const [showSideBar, setShowSideBar] = useState(false);
@@ -33,7 +34,9 @@ const NavBar = () => {
       <div className="h-full flex flex-row gap-4 container">
         <div className="h-full lg:flex-1 flex flex-row items-center justify-start">
           <Link href="/" passHref>
-            <a className="font-medium text-xl font-mono">rohid.dev</a>
+            <a>
+              <Logo className="h-8" />
+            </a>
           </Link>
         </div>
 
@@ -50,11 +53,11 @@ const NavBar = () => {
           }`}
         >
           <ul className="flex flex-col md:flex-row h-full items-center justify-start w-full pt-20 md:pt-0">
-            <NavMenuButton
+            {/* <NavMenuButton
               name="Home"
               href="/"
               isActive={router.asPath === "/"}
-            />
+            /> */}
             <NavMenuButton
               name="Projects"
               href="/projects"
@@ -71,7 +74,7 @@ const NavBar = () => {
               isActive={router.asPath.startsWith("/tags")}
             />
             <NavMenuButton
-              name="About"
+              name="About Me"
               href="/about"
               isActive={router.asPath.startsWith("/about")}
             />

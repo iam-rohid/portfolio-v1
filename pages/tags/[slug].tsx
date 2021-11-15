@@ -1,7 +1,7 @@
 import React from "react";
 
 function TagPage() {
-  return <div>tag page</div>;
+  return <main>tag page</main>;
 }
 
 export default TagPage;
