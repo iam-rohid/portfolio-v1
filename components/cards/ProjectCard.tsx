@@ -12,10 +12,13 @@ const ProjectCard = (props: {
   const { isEven, compact, project } = props;
   return (
     <article
-      className={`group w-full rounded-3xl overflow-visible flex bg-white dark:bg-gray-800 items-center px-4 flex-col ${
+      className={`group relative w-full rounded-3xl overflow-visible flex bg-white dark:bg-gray-800 items-center px-4 flex-col ${
         isEven ? "md:flex-row-reverse" : "md:flex-row"
       }`}
     >
+      <Link href={`/projects/${project.slug}`} passHref>
+        <a className="inset-0 absolute"></a>
+      </Link>
       <Link href={`/projects/${project.slug}`} passHref>
         <a
           className={`overflow-hidden relative rounded-3xl w-full flex-1 -translate-y-5 shadow-lg group-hover:shadow-xl group-hover:-translate-y-8 transition-all duration-300`}
@@ -28,25 +31,18 @@ const ProjectCard = (props: {
           />
         </a>
       </Link>
-
       <div
-        className={`flex flex-1 flex-col text-center ${
+        className={`flex flex-1 flex-col text-center z-10 pointer-events-none ${
           compact ? "text-center" : "text-center lg:text-left"
         }`}
       >
         <div className="md:p-8 px-4 pb-4">
-          <Link href={`/projects/${project.slug}`} passHref>
-            <a>
-              <h3 className="text-lg md:text-2xl font-bold">{project.title}</h3>
-            </a>
-          </Link>
-
+          <h3 className="text-lg md:text-2xl font-bold">{project.title}</h3>
           {project.excerpt && !compact && (
             <p className="mt-3 leading-relaxed lg:inline-block hidden">
               {project.excerpt}
             </p>
           )}
-
           <div
             className={`flex flex-row gap-2 w-full mt-2 md:mt-4 ${
               compact ? "justify-center" : "justify-center lg:justify-start"
@@ -55,7 +51,7 @@ const ProjectCard = (props: {
             {project.liveLink && (
               <Link href={project.liveLink}>
                 <a
-                  className="hover:underline w-10 h-10 rounded-xl flex items-center justify-center bg-black dark:bg-white bg-opacity-0 dark:bg-opacity-0 hover:bg-opacity-10 dark:hover:bg-opacity-10"
+                  className="hover:underline w-10 h-10 rounded-xl flex items-center justify-center bg-black dark:bg-white bg-opacity-0 dark:bg-opacity-0 hover:bg-opacity-10 dark:hover:bg-opacity-10 pointer-events-auto"
                   target="_blank"
                   title="Live"
                 >
