@@ -4,7 +4,7 @@ import { ChevronRightIcon } from "@heroicons/react/outline";
 const HeroSection = () => {
   return (
     <section>
-      <div className="container flex flex-col-reverse lg:flex-row items-center gap-4">
+      <div className="container flex flex-col-reverse lg:flex-row items-center gap-8">
         <div className="flex-1 flex flex-col justify-center items-center lg:items-start lg:text-left text-center">
           <p className="text-lg">Hi, there 👋</p>
           <h1 className="font-medium text-4xl mb-4">

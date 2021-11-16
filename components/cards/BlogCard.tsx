@@ -23,13 +23,15 @@ const BlogCard = (props: { blog: BlogType }) => {
         </Link>
       </div>
       <div className="px-4 pb-8">
-        <p className="-translate-y-2 text-gray-600 dark:text-gray-300">
+        <p className="-translate-y-2 text-gray-600 dark:text-gray-300 text-sm md:text-base">
           Published on{" "}
           <strong>{new Date(blog.createdAt).toDateString()}</strong>
         </p>
         <Link href={`/blogs/${blog.slug}`} passHref>
           <a>
-            <h1 className="text-2xl leading-tight font-bold">{blog.title}</h1>
+            <h3 className="text-lg md:text-2xl leading-tight font-bold">
+              {blog.title}
+            </h3>
           </a>
         </Link>
       </div>

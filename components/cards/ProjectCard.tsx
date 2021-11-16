@@ -34,12 +34,10 @@ const ProjectCard = (props: {
           compact ? "text-center" : "text-center lg:text-left"
         }`}
       >
-        <div className="md:p-8 px-4 pb-6">
+        <div className="md:p-8 px-4 pb-4">
           <Link href={`/projects/${project.slug}`} passHref>
             <a>
-              <h3 className="text-2xl lg:text-2xl font-bold">
-                {project.title}
-              </h3>
+              <h3 className="text-lg md:text-2xl font-bold">{project.title}</h3>
             </a>
           </Link>
 
@@ -50,14 +48,14 @@ const ProjectCard = (props: {
           )}
 
           <div
-            className={`flex flex-row gap-2 w-full ${
+            className={`flex flex-row gap-2 w-full mt-2 md:mt-4 ${
               compact ? "justify-center" : "justify-center lg:justify-start"
             }`}
           >
             {project.liveLink && (
               <Link href={project.liveLink}>
                 <a
-                  className="hover:underline mt-4 w-10 h-10 rounded-xl flex items-center justify-center bg-black dark:bg-white bg-opacity-0 dark:bg-opacity-0 hover:bg-opacity-10 dark:hover:bg-opacity-10"
+                  className="hover:underline w-10 h-10 rounded-xl flex items-center justify-center bg-black dark:bg-white bg-opacity-0 dark:bg-opacity-0 hover:bg-opacity-10 dark:hover:bg-opacity-10"
                   target="_blank"
                   title="Live"
                 >
@@ -68,7 +66,7 @@ const ProjectCard = (props: {
             {project.sourceLink && (
               <Link href={project.sourceLink}>
                 <a
-                  className="hover:underline mt-4 w-10 h-10 rounded-xl flex items-center justify-center bg-black dark:bg-white bg-opacity-0 dark:bg-opacity-0 hover:bg-opacity-10 dark:hover:bg-opacity-10"
+                  className="hover:underline w-10 h-10 rounded-xl flex items-center justify-center bg-black dark:bg-white bg-opacity-0 dark:bg-opacity-0 hover:bg-opacity-10 dark:hover:bg-opacity-10"
                   target="_blank"
                   title="Source Code"
                 >

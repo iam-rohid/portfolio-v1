@@ -46,11 +46,10 @@ const AboutPage = () => {
           className="w-56 lg:w-72 group relative"
           style={{ aspectRatio: "2/3" }}
         >
-          <div className="w-full h-full absolute -bottom-6 -right-6 rounded-2xl ring-2 ring-gray-400 dark:ring-gray-500 group-hover:-bottom-4 group-hover:-right-4 transition-all duration-300"></div>
           <img
             src="/assets/images/avatar.png"
             alt="Rohidul Islam Rohid"
-            className="w-full h-full object-cover rounded-2xl transition-all duration-300 absolute overflow-hidden"
+            className="inset-0 w-full h-full object-cover rounded-2xl absolute overflow-hidden"
           />
         </div>
       </div>
