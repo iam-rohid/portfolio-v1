@@ -54,6 +54,27 @@ const HomePage = ({ blogs, projects }) => {
           </div>
         </div>
       </section>
+
+      <section className="px-4 w-full max-w-2xl mx-auto">
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+          }}
+          className="relative flex items-center flex-col gap-6"
+        >
+          <input
+            type="email"
+            className="w-full px-10 py-4 md:py-6 rounded-2xl md:rounded-3xl text-xl outline-none bg-white dark:bg-gray-800 flex flex-row md:pr-52 focus:shadow-xl transition-shadow duration-300"
+            placeholder="Email"
+          />
+          <button
+            type="submit"
+            className="hover:-translate-y-2 active:-translate-y-0 transition-all duration-150 px-10 justify-center py-3 rounded-2xl text-xl font-semibold text-white flex flex-row items-center gap-4 bg-gradient-to-tr from-blue-600 to-purple-500 group hover:shadow-lg active:shadow-none md:absolute top-3 right-3 w-full md:w-auto"
+          >
+            <p className="whitespace-nowrap">Subscribe</p>
+          </button>
+        </form>
+      </section>
     </main>
   );
 };
