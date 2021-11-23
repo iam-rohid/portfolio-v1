@@ -12,7 +12,7 @@ const ProjectsSection = (props: { projects: ProjectType[] }) => {
         <h1 className="text-center text-3xl font-black">Projects</h1>
         <Link href="/projects" passHref>
           <a className="h-10 px-4 hover:bg-gray-200 dark:hover:bg-gray-800 items-center justify-center flex flex-row rounded-lg gap-2">
-            <p className="whitespace-nowrap">See More</p>
+            <p className="whitespace-nowrap">See More Projects</p>
             <ChevronRightIcon className="w-5 h-5" />
           </a>
         </Link>

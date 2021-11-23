@@ -115,24 +115,25 @@ const NavMenuButton = (props: {
 }) => {
   const { name, href, isActive, className } = props;
   return (
-    <Link href={href} passHref>
-      <a
-        className={`lg:h-full py-6 lg:py-0 px-5 w-full md:w-auto flex items-center justify-center relative group ${className}`}
-      >
-        <li
-          className={`transition-opacity duration-300 whitespace-nowrap group-hover:opacity-100 ${
-            isActive ? "opacity-100" : "opacity-70"
-          }`}
+    <li
+      className={`transition-opacity duration-300 whitespace-nowrap group-hover:opacity-100 group relative lg:h-full w-full md:w-auto ${
+        isActive ? "opacity-100" : "opacity-70"
+      }`}
+    >
+      <Link href={href} passHref>
+        <a
+          title={name}
+          className={`h-full px-5 w-full flex items-center justify-center ${className}`}
         >
           {name}
-        </li>
-        <span
-          className={`h-1 bg-primary-500 rounded-full absolute bottom-0 transition-all duration-300 mb-2 ${
-            isActive ? "w-8" : "w-0"
-          }`}
-        ></span>
-      </a>
-    </Link>
+          <span
+            className={`h-1 bg-primary-500 rounded-full absolute bottom-0 transition-all duration-300 mb-2 ${
+              isActive ? "w-8" : "w-0"
+            }`}
+          ></span>
+        </a>
+      </Link>
+    </li>
   );
 };
 

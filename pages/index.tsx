@@ -16,23 +16,19 @@ const HomePage = ({ blogs, projects }) => {
   return (
     <main className="flex flex-col gap-20 md:gap-32 py-14 md:py-32">
       <Head>
-        <title>Rohid.dev</title>
+        <title>Rohid</title>
         <meta
           name="description"
           content="Hi, I'm rohid. I'm a sowftware developer specializeing in building responsibe front-end website/web applications. I also love to do UI design with Figma. I also do unity 3d mobile game development."
         />
         <meta
           name="keywords"
-          content="Rohid, Rohid.dev, Dev, Developer, Portfolio, Developer Portfolio, Portfolio Site, React Developer, Modern, Blog"
+          content="Rohid, Rohidul Islam, Rohidul, rohid.dev, Dev, Developer, Portfolio, Developer Portfolio, React Developer, Blog"
         />
       </Head>
-
       <HeroSection />
-
       <ProjectsSection projects={projects as ProjectType[]} />
-
       <BlogsSection blogs={(blogs as BlogType[]).slice(0, 4)} />
-
       <section className="container">
         <div className="bg-white dark:bg-gray-800 rounded-3xl w-full flex flex-col md:flex-row items-center p-4 py-10 gap-8 md:gap-4">
           <div className="flex-1 items-center justify-center flex">
@@ -55,7 +51,7 @@ const HomePage = ({ blogs, projects }) => {
         </div>
       </section>
 
-      <section className="px-4 w-full max-w-2xl mx-auto">
+      {/* <section className="px-4 w-full max-w-2xl mx-auto">
         <form
           onSubmit={(e) => {
             e.preventDefault();
@@ -74,7 +70,7 @@ const HomePage = ({ blogs, projects }) => {
             <p className="whitespace-nowrap">Subscribe</p>
           </button>
         </form>
-      </section>
+      </section> */}
     </main>
   );
 };

@@ -34,22 +34,24 @@ const BlogPage = ({ blog }) => {
           Published on{" "}
           <strong>{new Date(blog.createdAt).toDateString()}</strong>
         </p>
-        <div className="flex flex-row flex-wrap gap-2">
+        <ul className="flex flex-row flex-wrap gap-2">
           {blog.tags.map((tag) => (
-            <Tag tag={tag} key={tag.slug} size="sm" />
+            <li>
+              <Tag tag={tag} key={tag.slug} size="sm" />
+            </li>
           ))}
-        </div>
+        </ul>
       </header>
-      <div className="w-full flex-1 min-w-0 flex flex-row gap-8">
+      <div className="w-full flex-1 min-w-0 flex flex-row gap-8 max-w-3xl mx-auto">
         <article className="flex-1 min-w-0">
           <Markdown>{blog.body}</Markdown>
         </article>
-        <aside className="relative top-0 w-80 hidden lg:block">
+        {/* <aside className="relative top-0 w-80 hidden lg:block">
           <div className="w-full sticky top-24 flex flex-col gap-8">
             <div className="bg-white dark:bg-gray-800 rounded-xl w-full h-64"></div>
             <div className="bg-white dark:bg-gray-800 rounded-xl w-full h-96"></div>
           </div>
-        </aside>
+        </aside> */}
       </div>
     </main>
   );
