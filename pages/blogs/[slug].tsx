@@ -43,7 +43,7 @@ const BlogPage = ({ blog, tags }) => {
           alt={`${blog.title} - Cover Photo`}
           className="w-full overflow-hidden object-cover h-full saturate-150"
         />
-        <div className="absolute inset-0 bg-white dark:bg-gray-900 backdrop-blur-xl bg-opacity-30 dark:bg-opacity-30"></div>
+        <div className="absolute inset-0 bg-white dark:bg-gray-900 backdrop-blur-xl bg-opacity-70 dark:bg-opacity-70"></div>
       </div>
       <div className="grid grid-cols-3 gap-16 container py-16 z-10">
         <article className="col-span-3 md:col-span-2">
