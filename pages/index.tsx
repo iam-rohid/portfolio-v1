@@ -7,6 +7,7 @@ import RecentlyPublished from "../components/sections/RecentlyPublished";
 import SideBarTagList from "../components/widgets/SidebarTagList";
 import SideBarBlogList from "../components/widgets/SidebarBlogList";
 import BlogCardSmall from "../components/cards/BlogCardSmall";
+import { VarticalAd, WideAd } from "../components/ads";
 
 const HomePage = ({
   recentBlogs,
@@ -34,6 +35,7 @@ const HomePage = ({
             <BlogCardSmall blog={blog} key={blog.slug} />
           ))}
         </div>
+        <WideAd />
       </section>
       <div className="grid grid-cols-3 container gap-16">
         <div className="col-span-3 md:col-span-2">
@@ -42,6 +44,7 @@ const HomePage = ({
         <div className="col-span-3 md:col-span-1 gap-16 flex flex-col">
           <SideBarTagList tags={popularTags} title="Popular Tags" />
           <SideBarBlogList blogs={popularBlogs} title="Popular Blogs" />
+          <VarticalAd />
         </div>
       </div>
     </main>
