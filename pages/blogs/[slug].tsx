@@ -158,29 +158,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
             }
           }
         }
-        
-        tags {
-          slug
-          name
-          backgroundColor {
-            css
-            rgba {
-              r
-              g
-              b
-              a
-            }
-          }
-          foregroundColor {
-            css
-            rgba {
-              r
-              g
-              b
-              a
-            }
-          }
-        }
       }
     `,
   });
