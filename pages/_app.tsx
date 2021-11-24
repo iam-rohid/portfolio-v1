@@ -26,6 +26,12 @@ gtag('js', new Date());
 gtag('config', 'G-6QZTGSP5LL');
             `}
           </Script>
+          <Script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322439099058988"
+            crossOrigin="anonymous"
+            strategy="beforeInteractive"
+          />
 
           <NavBar />
           <Component {...pageProps} />
