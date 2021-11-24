@@ -16,7 +16,7 @@ const HomePage = ({
   popularTags,
 }) => {
   return (
-    <main className="flex flex-col gap-20 md:gap-16 py-8 md:py-16">
+    <main className="flex flex-col gap-20 md:gap-8 py-8 md:py-16">
       <Head>
         <title>Rohid</title>
         <meta
@@ -38,11 +38,11 @@ const HomePage = ({
         <div className="mt-16"></div>
         <WideAd />
       </section>
-      <div className="grid grid-cols-3 container gap-16">
+      <div className="grid grid-cols-3 container gap-8">
         <div className="col-span-3 md:col-span-2">
           <RecentlyPublished blogs={recentBlogs} />
         </div>
-        <div className="col-span-3 md:col-span-1 gap-16 flex flex-col">
+        <div className="col-span-3 md:col-span-1 gap-8 flex flex-col">
           <SideBarTagList tags={popularTags} title="Popular Tags" />
           <VarticalAd />
           <SideBarBlogList blogs={popularBlogs} title="Popular Blogs" />
