@@ -79,7 +79,7 @@ const BlogPage = ({ blog }) => {
           <WideAd />
         </article>
         <aside className="col-span-3 md:col-span-1 flex flex-col gap-16">
-          {blog.tags && blog.tags.lenght > 0 && (
+          {blog.tags && (
             <Fragment>
               <SideBarTagList tags={blog.tags} title="Tags" />
               <VarticalAd />
