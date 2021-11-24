@@ -5,6 +5,7 @@ import { client } from "../../apolloClient";
 import BlogCard from "../../components/cards/BlogCard";
 import Head from "next/head";
 import BlogCardLarge from "../../components/cards/BlogCardLarge";
+import { WideAd } from "../../components/ads";
 function TagPage({ tag }) {
   return (
     <main>
@@ -33,6 +34,8 @@ function TagPage({ tag }) {
           <p className="text-center">No Blogs found with this tag 😥</p>
         )}
       </div>
+      <div className="mt-16"></div>
+      <WideAd />
     </main>
   );
 }

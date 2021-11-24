@@ -1,11 +1,11 @@
 import { gql } from "@apollo/client";
 import { GetStaticProps } from "next";
-import React, { Fragment } from "react";
+import React from "react";
 import { client } from "../../apolloClient";
 import { BlogsQuery } from "../../constants/querys";
 import Head from "next/head";
 import BlogCardLarge from "../../components/cards/BlogCardLarge";
-import { BlogListAd, WideAd } from "../../components/ads";
+import { WideAd } from "../../components/ads";
 
 const BLogsPage = ({ blogs }) => {
   return (
@@ -18,10 +18,7 @@ const BLogsPage = ({ blogs }) => {
         <div className="section-title">Blogs</div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
           {blogs.map((blog, i) => (
-            <Fragment key={blog.slug}>
-              <BlogCardLarge blog={blog} key={blog.slug} />
-              {i % 2 === 1 && <BlogListAd />}
-            </Fragment>
+            <BlogCardLarge blog={blog} key={blog.slug} />
           ))}
         </div>
       </div>

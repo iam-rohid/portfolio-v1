@@ -10,10 +10,7 @@ const RecentlyPublished = (props: { blogs: BlogType[] }) => {
       <h2 className="section-title">Recently Published</h2>
       <div className="flex flex-col gap-16">
         {blogs.map((blog, i) => (
-          <Fragment key={blog.slug}>
-            <BlogCardLarge blog={blog} />
-            {(i === 1 || i === 3) && <BlogListAd />}
-          </Fragment>
+          <BlogCardLarge blog={blog} key={i} />
         ))}
       </div>
     </section>
