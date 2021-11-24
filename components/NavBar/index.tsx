@@ -6,6 +6,7 @@ import NavBarMenu from "./NavBarMenu";
 import IconButton from "./IconButton";
 import { menu } from "./menu";
 import FullScreenMenu from "./FullScreenMenu";
+import { Github } from "../icons";
 
 const NavBar = () => {
   const [showSideBar, setShowSideBar] = useState(false);
@@ -45,6 +46,14 @@ const NavBar = () => {
             onClick={() => setIsDark(!isDark)}
             className=""
           />
+          <Link href="https://github.com/rohid-hub">
+            <a target="_blank">
+              <IconButton
+                icon={<Github className="w-6 h-6 fill-current" />}
+                isActive={isDark}
+              />
+            </a>
+          </Link>
           <IconButton
             icon={<MenuIcon className="w-6 h-6" />}
             activeIcon={<XIcon className="w-6 h-6" />}

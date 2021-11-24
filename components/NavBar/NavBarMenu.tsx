@@ -108,7 +108,7 @@ const SubMenu = (props: {
         {subMenu.map((item, i) => (
           <li key={i} className="flex whitespace-nowrap w-full">
             <Link href={item.href} passHref>
-              <a className="hover:text-primary-500 dark:hover:text-primary-500 p-4 w-full">
+              <a className="hover:text-primary-500 dark:hover:text-primary-500 py-2 px-4 w-full">
                 {item.name}
               </a>
             </Link>

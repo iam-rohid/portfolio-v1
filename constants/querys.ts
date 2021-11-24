@@ -3,6 +3,7 @@ export const BlogsQuery = `
   slug
   title
   createdAt
+  excerpt
   coverPhoto {
     url
   }
