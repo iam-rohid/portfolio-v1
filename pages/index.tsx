@@ -35,6 +35,7 @@ const HomePage = ({
             <BlogCardSmall blog={blog} key={blog.slug} />
           ))}
         </div>
+        <div className="mt-16"></div>
         <WideAd />
       </section>
       <div className="grid grid-cols-3 container gap-16">
@@ -43,6 +44,7 @@ const HomePage = ({
         </div>
         <div className="col-span-3 md:col-span-1 gap-16 flex flex-col">
           <SideBarTagList tags={popularTags} title="Popular Tags" />
+          <VarticalAd />
           <SideBarBlogList blogs={popularBlogs} title="Popular Blogs" />
           <VarticalAd />
         </div>

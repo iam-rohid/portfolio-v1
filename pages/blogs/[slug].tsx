@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import React from "react";
+import React, { Fragment } from "react";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { client } from "../../apolloClient";
 import { gql } from "@apollo/client";
@@ -8,6 +8,7 @@ import Head from "next/head";
 import Tag from "../../components/Tag";
 import SideBarTagList from "../../components/widgets/SidebarTagList";
 import SideBarBlogList from "../../components/widgets/SidebarBlogList";
+import { VarticalAd, WideAd } from "../../components/ads";
 
 const BlogPage = ({ blog, tags }) => {
   return (
@@ -75,12 +76,17 @@ const BlogPage = ({ blog, tags }) => {
             </div>
           </div>
           <Markdown>{blog.body}</Markdown>
+          <WideAd />
         </article>
         <aside className="col-span-3 md:col-span-1 flex flex-col gap-16">
           {blog.tags && blog.tags.lenght > 0 && (
-            <SideBarTagList tags={blog.tags} title="Tags" />
+            <Fragment>
+              <SideBarTagList tags={blog.tags} title="Tags" />
+              <VarticalAd />
+            </Fragment>
           )}
           <SideBarBlogList blogs={[blog, blog]} title="Relative blogs" />
+          <VarticalAd />
         </aside>
       </div>
     </main>
@@ -125,6 +131,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
           body
           createdAt
           updatedAt
+          slug
           coverPhoto {
             url
           }

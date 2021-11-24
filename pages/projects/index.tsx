@@ -1,10 +1,11 @@
-import React from "react";
+import React, { Fragment } from "react";
 import Head from "next/head";
 import ProjectCard from "../../components/cards/ProjectCard";
 import { ProjectType } from "../../types/project-type";
 import { GetStaticProps } from "next";
 import { client } from "../../apolloClient";
 import { gql } from "@apollo/client";
+import { BlogListAd, PostAd, VarticalAd } from "../../components/ads";
 
 const ProjectsPage = ({ projects }) => {
   return (
@@ -19,12 +20,17 @@ const ProjectsPage = ({ projects }) => {
 
           <div className="flex flex-col gap-16">
             {projects.map((project: ProjectType, i) => (
-              <ProjectCard project={project} key={i} />
+              <Fragment key={i}>
+                <ProjectCard project={project} key={i} />
+                {i % 2 == 0 && <BlogListAd />}
+              </Fragment>
             ))}
           </div>
         </div>
-        <div className="col-span-1">
-          <div className="border-2 h-96 border-gray-200 dark:border-gray-700 sticky top-24 rounded-xl border-dashed"></div>
+        <div className="col-span-1 flex flex-col gap-16">
+          <VarticalAd />
+          <PostAd />
+          <VarticalAd />
         </div>
       </div>
     </main>
