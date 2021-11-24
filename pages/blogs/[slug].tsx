@@ -140,9 +140,21 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
             name
             backgroundColor {
               css
+              rgba {
+                r
+                g
+                b
+                a
+              }
             }
             foregroundColor {
               css
+              rgba {
+                r
+                g
+                b
+                a
+              }
             }
           }
         }
