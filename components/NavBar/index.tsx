@@ -28,7 +28,7 @@ const NavBar = () => {
           <Link href="/" passHref>
             <a>
               <span className="text-2xl font-black logo text-primary-500">
-                Rohid
+                Rohid.dev
               </span>
             </a>
           </Link>

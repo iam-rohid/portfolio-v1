@@ -9,10 +9,10 @@ const Tag = (props: { tag: TagType; size: "sm" | "md" | "lg" }) => {
       <a
         className={`hover:brightness-110 active:brightness-90 ${
           size === "sm"
-            ? "px-2 py-1 rounded-md text-sm"
+            ? "px-2.5 py-1 rounded-md text-sm"
             : size == "md"
-            ? "px-2.5 py-1.5 rounded-lg text-base"
-            : "px-3 py-1.5 rounded-lg text-lg"
+            ? "px-3 py-1.5 rounded-lg text-base"
+            : "px-3.5 py-1.5 rounded-xl text-lg"
         }`}
         style={{
           backgroundColor: tag.backgroundColor
@@ -23,7 +23,8 @@ const Tag = (props: { tag: TagType; size: "sm" | "md" | "lg" }) => {
             "inherit",
         }}
       >
-        #{tag.slug}
+        <span className="opacity-50">#</span>
+        {tag.slug}
       </a>
     </Link>
   );

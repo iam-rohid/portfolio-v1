@@ -10,11 +10,11 @@ export const menu: MenuType = [
     href: "/tutorials",
   },
   {
-    name: "Projects",
-    href: "/projects",
+    name: "Tags",
+    href: "/tags",
   },
   {
-    name: "Daily",
-    href: "/daily",
+    name: "Projects",
+    href: "/projects",
   },
 ];

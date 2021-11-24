@@ -5,10 +5,10 @@ import Head from "next/head";
 import { client } from "../apolloClient";
 import { BlogsQuery } from "../constants/querys";
 import RecentlyPublished from "../components/sections/RecentlyPublished";
-import TopCategoriesSection from "../components/Widgets/TopCategoriesSection";
-import PopularBlogs from "../components/Widgets/PopularBlogs";
+import PopularTags from "../components/widgets/PopularTags";
+import PopularBlogs from "../components/widgets/PopularBlogs";
 
-const HomePage = ({ blogs, projects }) => {
+const HomePage = ({ blogs, tags }) => {
   return (
     <main className="flex flex-col gap-20 md:gap-16 py-8 md:py-16">
       <Head>
@@ -27,7 +27,7 @@ const HomePage = ({ blogs, projects }) => {
           <RecentlyPublished blogs={blogs} />
         </div>
         <div className="col-span-3 md:col-span-1 gap-16 flex flex-col">
-          <TopCategoriesSection />
+          <PopularTags tags={tags} />
           <PopularBlogs blogs={blogs} />
         </div>
       </div>
@@ -37,7 +37,7 @@ const HomePage = ({ blogs, projects }) => {
 
 export const getStaticProps: GetStaticProps = async () => {
   const {
-    data: { blogs, projects },
+    data: { blogs, projects, tags },
   } = await client.query({
     query: gql`
       query GetData {
@@ -54,6 +54,28 @@ export const getStaticProps: GetStaticProps = async () => {
             url
           }
         }
+        tags {
+          slug
+          name
+          backgroundColor {
+            css
+            rgba {
+              r
+              g
+              b
+              a
+            }
+          }
+          foregroundColor {
+            css
+            rgba {
+              r
+              g
+              b
+              a
+            }
+          }
+        }
       }
     `,
   });
@@ -61,6 +83,7 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       blogs,
       projects,
+      tags,
     },
   };
 };

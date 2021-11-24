@@ -13,7 +13,7 @@ const NavBarMenu = (props: { menu: MenuType }) => {
       {menu.map((item, i) => (
         <NavMenuButton
           key={i}
-          isActive={router.asPath.startsWith(item.href)}
+          isActive={router.asPath === item.href}
           name={item.name}
           href={item.href}
           subMenu={item.subMenu}
@@ -26,13 +26,12 @@ const NavBarMenu = (props: { menu: MenuType }) => {
 export default NavBarMenu;
 
 const NavMenuButton = (props: {
-  className?: string;
   name: string;
   href: string;
   isActive: boolean;
   subMenu?: MenuType;
 }) => {
-  const { name, href, isActive, className, subMenu } = props;
+  const { name, href, isActive, subMenu } = props;
   const [showSubMenu, setShowSubMenu] = useState(false);
 
   return (

@@ -4,6 +4,7 @@ import React from "react";
 import { client } from "../../apolloClient";
 import BlogCard from "../../components/cards/BlogCard";
 import Head from "next/head";
+import BlogCardLarge from "../../components/cards/BlogCardLarge";
 function TagPage({ tag }) {
   return (
     <main>
@@ -25,7 +26,7 @@ function TagPage({ tag }) {
         {tag.blogs.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
             {tag.blogs.map((blog) => (
-              <BlogCard blog={blog} key={blog.slug} />
+              <BlogCardLarge blog={blog} key={blog.slug} />
             ))}
           </div>
         ) : (
@@ -92,6 +93,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
             title
             createdAt
             slug
+            excerpt
             coverPhoto {
               url
             }
