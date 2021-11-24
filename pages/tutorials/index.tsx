@@ -5,7 +5,7 @@ import { client } from "../../apolloClient";
 import { BlogsQuery } from "../../constants/querys";
 import Head from "next/head";
 import BlogCardLarge from "../../components/cards/BlogCardLarge";
-import { BlogListAd } from "../../components/ads";
+import { BlogListAd, WideAd } from "../../components/ads";
 
 const TutorialsPage = ({ blogs }) => {
   return (
@@ -25,6 +25,8 @@ const TutorialsPage = ({ blogs }) => {
           ))}
         </div>
       </div>
+      <div className="mt-16"></div>
+      <WideAd />
     </main>
   );
 };

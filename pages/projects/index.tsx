@@ -5,7 +5,7 @@ import { ProjectType } from "../../types/project-type";
 import { GetStaticProps } from "next";
 import { client } from "../../apolloClient";
 import { gql } from "@apollo/client";
-import { BlogListAd, PostAd, VarticalAd } from "../../components/ads";
+import { BlogListAd, PostAd, VarticalAd, WideAd } from "../../components/ads";
 
 const ProjectsPage = ({ projects }) => {
   return (
@@ -33,6 +33,8 @@ const ProjectsPage = ({ projects }) => {
           <VarticalAd />
         </div>
       </div>
+      <div className="mt-16"></div>
+      <WideAd />
     </main>
   );
 };

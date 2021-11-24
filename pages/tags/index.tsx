@@ -5,6 +5,7 @@ import { client } from "../../apolloClient";
 import Link from "next/link";
 import Head from "next/head";
 import Tag from "../../components/Tag";
+import { WideAd } from "../../components/ads";
 
 const TagsPage = ({ tags }) => {
   return (
@@ -19,6 +20,8 @@ const TagsPage = ({ tags }) => {
           <Tag tag={tag} key={tag.slug} size="lg" />
         ))}
       </ul>
+      <div className="mt-16"></div>
+      <WideAd />
     </main>
   );
 };

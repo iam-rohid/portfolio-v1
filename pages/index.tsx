@@ -49,6 +49,8 @@ const HomePage = ({
           <VarticalAd />
         </div>
       </div>
+      <div className="mt-16"></div>
+      <WideAd />
     </main>
   );
 };
