@@ -9,9 +9,6 @@ module.exports = {
       colors: {
         gray: {
           ...colors.gray,
-          100: "#F5F8FC",
-          800: "#21252D",
-          900: "#0C0F12",
         },
         primary: colors.indigo,
       },

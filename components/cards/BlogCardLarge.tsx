@@ -22,8 +22,8 @@ const BlogCardLarge = (props: { blog: BlogType }) => {
           <img
             src={imageUrl}
             alt={`${title} - Thumbnail`}
-            className="w-full h-full object-cover"
-            style={{ aspectRatio: "2/1" }}
+            className="w-full h-full object-cover rounded-xl"
+            style={{ aspectRatio: "16/9" }}
           />
           <p className="text-sm opacity-80">
             Published On {new Date(createdAt).toLocaleString()}

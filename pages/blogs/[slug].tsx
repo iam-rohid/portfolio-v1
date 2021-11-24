@@ -17,8 +17,22 @@ const BlogPage = ({ blog, tags }) => {
         <meta name="description" content={blog.excerpt || blog.title || ""} />
         <meta
           name="keywords"
-          content={blog.tags.map((tag) => tag.name).join(", ")}
+          content={[
+            ...blog.tags.map((tag) => tag.name),
+            "Rohid",
+            "Rohidul Islam",
+            "Rohid Dev",
+          ].join(", ")}
         ></meta>
+        <script type="application/ld+json">
+          {`
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            "headline": "${blog.title}",
+            "datePublished": "${blog.createdAt}",
+            "dateModified": "${blog.updatedAt}"
+          `}
+        </script>
       </Head>
       <div
         className="w-full h-64 md:h-80 lg:h-96 relative"
@@ -103,6 +117,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
           title
           body
           createdAt
+          updatedAt
           coverPhoto {
             url
           }

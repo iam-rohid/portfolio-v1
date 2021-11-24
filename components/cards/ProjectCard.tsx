@@ -4,73 +4,61 @@ import Link from "next/link";
 import { ProjectType } from "../../types/project-type";
 import { CodeIcon, ExternalLinkIcon } from "@heroicons/react/outline";
 
-const ProjectCard = (props: {
-  project: ProjectType;
-  isEven?: boolean;
-  compact?: boolean;
-}) => {
-  const { isEven, compact, project } = props;
+const ProjectCard = (props: { project: ProjectType }) => {
+  const { project } = props;
   return (
     <article
-      className={`group relative w-full rounded-3xl overflow-visible flex bg-white dark:bg-gray-800 items-center px-4 flex-col ${
-        isEven ? "md:flex-row-reverse" : "md:flex-row"
-      }`}
+      className={`group relative w-full overflow-visible items-center flex flex-col gap-8`}
     >
       <Link href={`/projects/${project.slug}`} passHref>
         <a className="inset-0 absolute"></a>
       </Link>
       <Link href={`/projects/${project.slug}`} passHref>
-        <a
-          className={`overflow-hidden relative rounded-3xl w-full flex-1 -translate-y-5 shadow-lg group-hover:shadow-xl group-hover:-translate-y-8 transition-all duration-300`}
-          style={{ aspectRatio: "16/9" }}
-        >
+        <a>
           <img
             src={project.coverPhoto.url}
             alt={`${project.title} - Thumbnail`}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover rounded-xl md:rounded-2xl"
+            style={{ aspectRatio: "16/9" }}
           />
         </a>
       </Link>
       <div
-        className={`flex flex-1 flex-col text-center z-10 pointer-events-none ${
-          compact ? "text-center" : "text-center lg:text-left"
-        }`}
+        className={`flex flex-col w-full z-10 pointer-events-none text-left`}
       >
-        <div className="md:p-8 px-4 pb-4">
-          <h3 className="text-lg md:text-2xl font-bold">{project.title}</h3>
-          {project.excerpt && !compact && (
-            <p className="mt-3 leading-relaxed lg:inline-block hidden">
-              {project.excerpt}
-            </p>
+        <h3 className="text-lg md:text-3xl leading-normal font-bold group-hover:underline">
+          {project.title}
+        </h3>
+        {project.excerpt && (
+          <p className="mt-3 leading-relaxed text-sm md:text-base">
+            {project.excerpt}
+          </p>
+        )}
+        <div
+          className={`flex flex-row gap-2 w-full mt-2 md:mt-4 justify-center md:justify-start`}
+        >
+          {project.liveLink && (
+            <Link href={project.liveLink}>
+              <a
+                className="hover:underline w-10 h-10 rounded-xl flex items-center justify-center bg-black dark:bg-white bg-opacity-0 dark:bg-opacity-0 hover:bg-opacity-10 dark:hover:bg-opacity-10 pointer-events-auto"
+                target="_blank"
+                title="Live"
+              >
+                <ExternalLinkIcon className="w-6 h-6" />
+              </a>
+            </Link>
           )}
-          <div
-            className={`flex flex-row gap-2 w-full mt-2 md:mt-4 ${
-              compact ? "justify-center" : "justify-center lg:justify-start"
-            }`}
-          >
-            {project.liveLink && (
-              <Link href={project.liveLink}>
-                <a
-                  className="hover:underline w-10 h-10 rounded-xl flex items-center justify-center bg-black dark:bg-white bg-opacity-0 dark:bg-opacity-0 hover:bg-opacity-10 dark:hover:bg-opacity-10 pointer-events-auto"
-                  target="_blank"
-                  title="Live"
-                >
-                  <ExternalLinkIcon className="w-6 h-6" />
-                </a>
-              </Link>
-            )}
-            {project.sourceLink && (
-              <Link href={project.sourceLink}>
-                <a
-                  className="hover:underline w-10 h-10 rounded-xl flex items-center justify-center bg-black dark:bg-white bg-opacity-0 dark:bg-opacity-0 hover:bg-opacity-10 dark:hover:bg-opacity-10"
-                  target="_blank"
-                  title="Source Code"
-                >
-                  <CodeIcon className="w-6 h-6" />
-                </a>
-              </Link>
-            )}
-          </div>
+          {project.sourceLink && (
+            <Link href={project.sourceLink}>
+              <a
+                className="hover:underline w-10 h-10 rounded-xl flex items-center justify-center bg-black dark:bg-white bg-opacity-0 dark:bg-opacity-0 hover:bg-opacity-10 dark:hover:bg-opacity-10 pointer-events-auto"
+                target="_blank"
+                title="Source Code"
+              >
+                <CodeIcon className="w-6 h-6" />
+              </a>
+            </Link>
+          )}
         </div>
       </div>
     </article>

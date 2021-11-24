@@ -21,7 +21,7 @@ const NavBar = () => {
 
   return (
     <nav
-      className={`w-full sticky left-0 right-0 z-30 top-0 bg-white dark:bg-gray-900 h-16`}
+      className={`w-full sticky left-0 right-0 z-30 top-0 bg-white dark:bg-gray-800 h-16`}
     >
       <div className="h-full flex flex-row gap-8 container">
         <div className="h-full flex flex-row items-center justify-start">

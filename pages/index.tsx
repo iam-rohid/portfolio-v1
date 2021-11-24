@@ -7,6 +7,7 @@ import { BlogsQuery } from "../constants/querys";
 import RecentlyPublished from "../components/sections/RecentlyPublished";
 import PopularTags from "../components/widgets/PopularTags";
 import PopularBlogs from "../components/widgets/PopularBlogs";
+import BlogCardSmall from "../components/cards/BlogCardSmall";
 
 const HomePage = ({ blogs, tags }) => {
   return (
@@ -22,6 +23,11 @@ const HomePage = ({ blogs, tags }) => {
           content="Rohid, Rohidul Islam, Rohidul, rohid.dev, Dev, Developer, Portfolio, Developer Portfolio, React Developer, Blog"
         />
       </Head>
+      <div className="container grid grid-cols-3 gap-4">
+        <BlogCardSmall blog={blogs[0]} />
+        <BlogCardSmall blog={blogs[0]} />
+        <BlogCardSmall blog={blogs[0]} />
+      </div>
       <div className="grid grid-cols-3 container gap-16">
         <div className="col-span-3 md:col-span-2">
           <RecentlyPublished blogs={blogs} />

@@ -18,8 +18,8 @@ const BlogCardSmall = (props: { blog: BlogType }) => {
           <img
             src={imageUrl}
             alt={`${title} - Thumbnail`}
-            className="w-full h-full object-cover"
-            style={{ aspectRatio: "2/1" }}
+            className="w-full h-full object-cover rounded-xl"
+            style={{ aspectRatio: "16/9" }}
           />
           <h3 className="text-xl font-bold group-hover:underline leading-normal">
             {title}
