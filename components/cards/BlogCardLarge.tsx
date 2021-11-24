@@ -26,7 +26,13 @@ const BlogCardLarge = (props: { blog: BlogType }) => {
             style={{ aspectRatio: "16/9" }}
           />
           <p className="text-sm opacity-80">
-            Published On {new Date(createdAt).toLocaleString()}
+            <span>Published on </span>
+            {new Date(createdAt).toLocaleDateString("en-US", {
+              weekday: "short",
+              year: "numeric",
+              month: "short",
+              day: "numeric",
+            })}
           </p>
           <h3 className="text-2xl lg:text-3xl leading-normal font-bold group-hover:underline">
             {title}

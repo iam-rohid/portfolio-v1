@@ -6,8 +6,8 @@ import { gql } from "@apollo/client";
 import Markdown from "../../components/Markdown";
 import Head from "next/head";
 import Tag from "../../components/Tag";
-import PopularTags from "../../components/widgets/PopularTags";
-import PopularBlogs from "../../components/widgets/PopularBlogs";
+import SideBarTagList from "../../components/widgets/SidebarTagList";
+import SideBarBlogList from "../../components/widgets/SidebarBlogList";
 
 const BlogPage = ({ blog, tags }) => {
   return (
@@ -56,9 +56,14 @@ const BlogPage = ({ blog, tags }) => {
             />
             <div className="flex flex-col gap-4">
               <h1 className="text-4xl font-bold">{blog.title}</h1>
-              <p>
-                Published on{" "}
-                <strong>{new Date(blog.createdAt).toDateString()}</strong>
+              <p className="">
+                <span>Published on </span>
+                {new Date(blog.createdAt).toLocaleDateString("en-US", {
+                  weekday: "short",
+                  year: "numeric",
+                  month: "short",
+                  day: "numeric",
+                })}
               </p>
               <ul className="flex flex-row flex-wrap gap-2">
                 {blog.tags.map((tag) => (
@@ -72,8 +77,10 @@ const BlogPage = ({ blog, tags }) => {
           <Markdown>{blog.body}</Markdown>
         </article>
         <aside className="col-span-3 md:col-span-1 flex flex-col gap-16">
-          <PopularTags tags={tags} />
-          <PopularBlogs blogs={[blog, blog]} />
+          {blog.tags && blog.tags.lenght > 0 && (
+            <SideBarTagList tags={blog.tags} title="Tags" />
+          )}
+          <SideBarBlogList blogs={[blog, blog]} title="Relative blogs" />
         </aside>
       </div>
     </main>

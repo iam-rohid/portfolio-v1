@@ -3,13 +3,17 @@ import { GetStaticProps } from "next";
 import React from "react";
 import Head from "next/head";
 import { client } from "../apolloClient";
-import { BlogsQuery } from "../constants/querys";
 import RecentlyPublished from "../components/sections/RecentlyPublished";
-import PopularTags from "../components/widgets/PopularTags";
-import PopularBlogs from "../components/widgets/PopularBlogs";
+import SideBarTagList from "../components/widgets/SidebarTagList";
+import SideBarBlogList from "../components/widgets/SidebarBlogList";
 import BlogCardSmall from "../components/cards/BlogCardSmall";
 
-const HomePage = ({ blogs, tags }) => {
+const HomePage = ({
+  recentBlogs,
+  popularBlogs,
+  featuredBlogs,
+  popularTags,
+}) => {
   return (
     <main className="flex flex-col gap-20 md:gap-16 py-8 md:py-16">
       <Head>
@@ -23,18 +27,21 @@ const HomePage = ({ blogs, tags }) => {
           content="Rohid, Rohidul Islam, Rohidul, rohid.dev, Dev, Developer, Portfolio, Developer Portfolio, React Developer, Blog"
         />
       </Head>
-      <div className="container grid grid-cols-3 gap-4">
-        <BlogCardSmall blog={blogs[0]} />
-        <BlogCardSmall blog={blogs[0]} />
-        <BlogCardSmall blog={blogs[0]} />
-      </div>
+      <section className="container">
+        <div className="section-title">Featured Blogs</div>
+        <div className="grid col-span-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+          {featuredBlogs.map((blog) => (
+            <BlogCardSmall blog={blog} key={blog.slug} />
+          ))}
+        </div>
+      </section>
       <div className="grid grid-cols-3 container gap-16">
         <div className="col-span-3 md:col-span-2">
-          <RecentlyPublished blogs={blogs} />
+          <RecentlyPublished blogs={recentBlogs} />
         </div>
         <div className="col-span-3 md:col-span-1 gap-16 flex flex-col">
-          <PopularTags tags={tags} />
-          <PopularBlogs blogs={blogs} />
+          <SideBarTagList tags={popularTags} title="Popular Tags" />
+          <SideBarBlogList blogs={popularBlogs} title="Popular Blogs" />
         </div>
       </div>
     </main>
@@ -43,23 +50,28 @@ const HomePage = ({ blogs, tags }) => {
 
 export const getStaticProps: GetStaticProps = async () => {
   const {
-    data: { blogs, projects, tags },
+    data: { blogs: recentBlogs },
   } = await client.query({
     query: gql`
       query GetData {
-        blogs ${BlogsQuery}
-        projects(orderBy: completedAt_DESC, where: {isFeatured: true}) {
+        blogs(orderBy: createdAt_DESC, first: 4) {
           slug
           title
           excerpt
-          isFeatured
-          completedAt
-          liveLink
-          sourceLink
+          createdAt
+          updatedAt
           coverPhoto {
             url
           }
         }
+      }
+    `,
+  });
+  const {
+    data: { tags: popularTags },
+  } = await client.query({
+    query: gql`
+      query GetData {
         tags {
           slug
           name
@@ -85,11 +97,51 @@ export const getStaticProps: GetStaticProps = async () => {
       }
     `,
   });
+
+  const {
+    data: { blogs: popularBlogs },
+  } = await client.query({
+    query: gql`
+      query GetData {
+        blogs(orderBy: updatedAt_DESC, where: { isPopular: true }, first: 4) {
+          slug
+          title
+          excerpt
+          createdAt
+          updatedAt
+          coverPhoto {
+            url
+          }
+        }
+      }
+    `,
+  });
+
+  const {
+    data: { blogs: featuredBlogs },
+  } = await client.query({
+    query: gql`
+      query GetData {
+        blogs(orderBy: updatedAt_DESC, where: { isFeatured: true }, first: 3) {
+          slug
+          title
+          excerpt
+          createdAt
+          updatedAt
+          coverPhoto {
+            url
+          }
+        }
+      }
+    `,
+  });
+
   return {
     props: {
-      blogs,
-      projects,
-      tags,
+      recentBlogs,
+      popularBlogs,
+      featuredBlogs,
+      popularTags,
     },
   };
 };
