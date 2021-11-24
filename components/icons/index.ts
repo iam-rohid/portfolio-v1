@@ -1,3 +1,3 @@
-import Github from "./github";
+import Github from "./Github";
 
 export { Github };
