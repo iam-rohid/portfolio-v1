@@ -18,7 +18,7 @@ const Footer = () => {
   if (!githubProfile) return null;
 
   return (
-    <footer>
+    <footer className="bg-gray-100 dark:bg-gray-800">
       <div className="container flex flex-col items-center justify-center py-14 gap-8">
         <SocialMediaLinks />
         <div className="flex flex-col gap-4 items-center justify-center">

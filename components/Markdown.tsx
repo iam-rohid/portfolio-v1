@@ -11,7 +11,7 @@ const Markdown = (props: { children: string }) => {
   const md = props.children || "";
   return (
     <ReactMarkdown
-      className="prose md:prose-lg max-w-none min-w-0 py-8"
+      className="prose md:prose-lg max-w-none min-w-0"
       remarkPlugins={[remarkMath, remarkGfm, remarkHtml, remarkHighlightjs]}
       rehypePlugins={[rehypeKatex]}
     >

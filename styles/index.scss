@@ -5,11 +5,11 @@
 
 @layer utilities {
   .container {
-    @apply w-full max-w-6xl mx-auto px-4 md:px-8;
+    @apply w-full max-w-7xl mx-auto px-4 md:px-8;
   }
   .prose,
   .prose-lg {
-    @apply text-gray-900 dark:text-white;
+    @apply text-gray-900 dark:text-white max-w-none;
     p,
     li,
     strong,
@@ -24,8 +24,14 @@
     h6 {
       @apply text-gray-900 dark:text-white;
     }
+    code {
+      @apply bg-gray-200 dark:bg-gray-700 p-1 rounded;
+    }
     pre {
-      @apply rounded-2xl;
+      @apply bg-gray-900 dark:bg-gray-900;
+      code {
+        @apply bg-transparent dark:bg-transparent;
+      }
     }
   }
 }

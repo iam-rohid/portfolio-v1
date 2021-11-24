@@ -5,17 +5,16 @@ import { client } from "../../apolloClient";
 import { gql } from "@apollo/client";
 import Markdown from "../../components/Markdown";
 import Head from "next/head";
-import Tag from "../../components/Tag";
 import SideBarTagList from "../../components/widgets/SidebarTagList";
 import SideBarBlogList from "../../components/widgets/SidebarBlogList";
 import { VarticalAd, WideAd } from "../../components/ads";
 
-const BlogPage = ({ blog }) => {
+const BlogPage = ({ blog, popularBlogs }) => {
   return (
-    <main className="">
+    <main>
       <Head>
         <title>{blog.title}</title>
-        <meta name="description" content={blog.excerpt || blog.title || ""} />
+        <meta name="description" content={blog.excerpt || blog.title} />
         <meta
           name="keywords"
           content={[
@@ -35,59 +34,44 @@ const BlogPage = ({ blog }) => {
           `}
         </script>
       </Head>
-      <div
-        className="w-full h-64 md:h-80 lg:h-96 relative"
-        style={{ zIndex: -10 }}
-      >
-        <img
-          src={blog.coverPhoto.url}
-          alt={`${blog.title} - Cover Photo`}
-          className="w-full overflow-hidden object-cover h-full saturate-150"
-        />
-        <div className="absolute inset-0 bg-white dark:bg-gray-900 backdrop-blur-xl bg-opacity-70 dark:bg-opacity-70"></div>
-      </div>
-      <div className="grid grid-cols-3 gap-16 container py-16 z-10">
-        <article className="col-span-3 md:col-span-2">
-          <div className="flex flex-col gap-8">
+      <div className="container flex flex-col gap-16">
+        <div className="grid grid-cols-3 gap-8 py-16 z-10">
+          <article className="col-span-3 lg:col-span-2">
             <img
               src={blog.coverPhoto.url}
               alt={`${blog.title} - Cover Photo`}
-              className="w-full overflow-hidden object-cover -mt-48 lg:-mt-80 rounded-2xl"
+              className="w-full overflow-hidden object-cover rounded-xl"
               style={{ aspectRatio: "16/9" }}
             />
-            <div className="flex flex-col gap-4">
-              <h1 className="text-4xl font-bold">{blog.title}</h1>
-              <p className="">
-                <span>Published on </span>
-                {new Date(blog.createdAt).toLocaleDateString("en-US", {
-                  weekday: "short",
-                  year: "numeric",
-                  month: "short",
-                  day: "numeric",
-                })}
-              </p>
-              <ul className="flex flex-row flex-wrap gap-2">
-                {blog.tags.map((tag) => (
-                  <li key={tag.slug}>
-                    <Tag tag={tag} size="sm" />
-                  </li>
-                ))}
-              </ul>
+            <h1 className="text-4xl font-black leading-normal py-2">
+              {blog.title}
+            </h1>
+            <p className="py-2">
+              <span>Published on </span>
+              {new Date(blog.createdAt).toLocaleDateString("en-US", {
+                weekday: "short",
+                year: "numeric",
+                month: "short",
+                day: "numeric",
+              })}
+            </p>
+            <div className="py-8">
+              <WideAd />
             </div>
-          </div>
-          <Markdown>{blog.body}</Markdown>
-          <WideAd />
-        </article>
-        <aside className="col-span-3 md:col-span-1 flex flex-col gap-16">
-          {blog.tags && (
-            <Fragment>
-              <SideBarTagList tags={blog.tags} title="Tags" />
-              <VarticalAd />
-            </Fragment>
-          )}
-          <SideBarBlogList blogs={[blog, blog]} title="Relative blogs" />
-          <VarticalAd />
-        </aside>
+            <Markdown>{blog.body}</Markdown>
+          </article>
+          <aside className="col-span-3 lg:col-span-1 flex flex-col gap-16">
+            {blog.tags && (
+              <Fragment>
+                <SideBarTagList tags={blog.tags} title="Tags" />
+                <VarticalAd />
+              </Fragment>
+            )}
+            <SideBarBlogList blogs={popularBlogs} title="Related Articles" />
+            <VarticalAd />
+          </aside>
+        </div>
+        <WideAd />
       </div>
     </main>
   );
@@ -161,9 +145,30 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       }
     `,
   });
+
+  const {
+    data: { blogs: popularBlogs },
+  } = await client.query({
+    query: gql`
+      query GetData {
+        blogs(orderBy: updatedAt_DESC, where: { isPopular: true }, first: 4) {
+          slug
+          title
+          excerpt
+          createdAt
+          updatedAt
+          coverPhoto {
+            url
+          }
+        }
+      }
+    `,
+  });
+
   return {
     props: {
       blog: blogs[0],
+      popularBlogs,
     },
   };
 };
