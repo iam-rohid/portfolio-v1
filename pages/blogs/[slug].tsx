@@ -10,7 +10,7 @@ import SideBarTagList from "../../components/widgets/SidebarTagList";
 import SideBarBlogList from "../../components/widgets/SidebarBlogList";
 import { VarticalAd, WideAd } from "../../components/ads";
 
-const BlogPage = ({ blog, tags }) => {
+const BlogPage = ({ blog }) => {
   return (
     <main className="">
       <Head>
@@ -122,7 +122,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const {
-    data: { blogs, tags },
+    data: { blogs },
   } = await client.query({
     query: gql`
       query GetData {
@@ -140,21 +140,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
             name
             backgroundColor {
               css
-              rgba {
-                r
-                g
-                b
-                a
-              }
             }
             foregroundColor {
               css
-              rgba {
-                r
-                g
-                b
-                a
-              }
             }
           }
         }
@@ -164,7 +152,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   return {
     props: {
       blog: blogs[0],
-      tags,
     },
   };
 };
