@@ -33,7 +33,6 @@ const ProjectPage = ({ project }) => {
         />
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:title" content={project.title} />
-        <meta property="twitter:title" content={project.title} />
         <meta property="twitter:description" content={project.excerpt} />
         <meta property="twitter:image" content={project.coverPhoto.url} />
         <meta property="twitter:creator" content="@rohid_dev" />

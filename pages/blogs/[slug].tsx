@@ -41,7 +41,6 @@ const BlogPage = ({ blog, popularBlogs }) => {
         />
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:title" content={blog.title} />
-        <meta property="twitter:title" content={blog.title} />
         <meta property="twitter:description" content={blog.excerpt} />
         <meta property="twitter:image" content={blog.coverPhoto.url} />
         <meta property="twitter:creator" content="@rohid_dev" />
