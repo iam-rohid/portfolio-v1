@@ -7,20 +7,36 @@ import Head from "next/head";
 import Link from "next/link";
 import Markdown from "../../components/Markdown";
 import { CodeIcon, ExternalLinkIcon } from "@heroicons/react/outline";
+import { useRouter } from "next/router";
 
 const ProjectPage = ({ project }) => {
+  const router = useRouter();
   return (
     <main className="container flex flex-col gap-8 py-8">
       <Head>
         <title>{project.title}</title>
+        <meta name="description" content={project.excerpt || project.title} />
+        <link rel="canonical" href={router.asPath} />
+        <meta property="og:title" content={project.title} />
         <meta
-          name="description"
-          content={project.excerpt || project.title || ""}
+          property="og:desription"
+          content={project.excerpt || project.title}
         />
-
-        <meta property="og:image" content={project.coverPhoto.url} />
-        <meta property="og:image:secure_url" content={project.coverPhoto.url} />
-        <meta name="twitter:image:src" content={project.coverPhoto.url} />
+        <meta property="og:site_name" content="Rohid.dev" />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={router.asPath} />
+        <meta
+          name="image"
+          itemProp="image"
+          property="og:image"
+          content={project.coverPhoto.url}
+        />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:title" content={project.title} />
+        <meta property="twitter:title" content={project.title} />
+        <meta property="twitter:description" content={project.excerpt} />
+        <meta property="twitter:image" content={project.coverPhoto.url} />
+        <meta property="twitter:creator" content="@rohid_dev" />
       </Head>
       <header className="flex flex-col gap-4">
         <div

@@ -8,8 +8,10 @@ import Head from "next/head";
 import SideBarTagList from "../../components/widgets/SidebarTagList";
 import SideBarBlogList from "../../components/widgets/SidebarBlogList";
 import { VarticalAd, WideAd } from "../../components/ads";
+import { useRouter } from "next/router";
 
 const BlogPage = ({ blog, popularBlogs }) => {
+  const router = useRouter();
   return (
     <main>
       <Head>
@@ -25,10 +27,24 @@ const BlogPage = ({ blog, popularBlogs }) => {
           ].join(", ")}
         ></meta>
 
-        <meta property="og:image" content={blog.coverPhoto.url} />
-        <meta property="og:image:secure_url" content={blog.coverPhoto.url} />
-        <meta name="twitter:image:src" content={blog.coverPhoto.url} />
-
+        <link rel="canonical" href={router.asPath} />
+        <meta property="og:title" content={blog.title} />
+        <meta property="og:desription" content={blog.excerpt || blog.title} />
+        <meta property="og:site_name" content="Rohid.dev" />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={router.asPath} />
+        <meta
+          name="image"
+          itemProp="image"
+          property="og:image"
+          content={blog.coverPhoto.url}
+        />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:title" content={blog.title} />
+        <meta property="twitter:title" content={blog.title} />
+        <meta property="twitter:description" content={blog.excerpt} />
+        <meta property="twitter:image" content={blog.coverPhoto.url} />
+        <meta property="twitter:creator" content="@rohid_dev" />
         <script type="application/ld+json">
           {`
             "@context": "https://schema.org",
