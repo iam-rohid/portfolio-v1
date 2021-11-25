@@ -17,6 +17,10 @@ const ProjectPage = ({ project }) => {
           name="description"
           content={project.excerpt || project.title || ""}
         />
+
+        <meta property="og:image" content={project.coverPhoto.url} />
+        <meta property="og:image:secure_url" content={project.coverPhoto.url} />
+        <meta name="twitter:image:src" content={project.coverPhoto.url} />
       </Head>
       <header className="flex flex-col gap-4">
         <div

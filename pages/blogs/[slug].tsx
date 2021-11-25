@@ -24,6 +24,11 @@ const BlogPage = ({ blog, popularBlogs }) => {
             "Rohid Dev",
           ].join(", ")}
         ></meta>
+
+        <meta property="og:image" content={blog.coverPhoto.url} />
+        <meta property="og:image:secure_url" content={blog.coverPhoto.url} />
+        <meta name="twitter:image:src" content={blog.coverPhoto.url} />
+
         <script type="application/ld+json">
           {`
             "@context": "https://schema.org",
