@@ -16,7 +16,7 @@ const BlogPage = ({ blog, popularBlogs }) => {
     <main>
       <Head>
         <title>{blog.title}</title>
-        <meta name="description" content={blog.excerpt || blog.title} />
+        <meta name="description" content={blog.excerpt} />
         <meta
           name="keywords"
           content={[
@@ -32,7 +32,7 @@ const BlogPage = ({ blog, popularBlogs }) => {
           href={`https://rohidulislam.com/${router.asPath}`}
         />
         <meta property="og:title" content={blog.title} />
-        <meta property="og:desription" content={blog.excerpt || blog.title} />
+        <meta property="og:desription" content={blog.excerpt} />
         <meta property="og:site_name" content="Rohid.dev" />
         <meta property="og:type" content="article" />
         <meta

@@ -15,16 +15,13 @@ const ProjectPage = ({ project }) => {
     <main className="container flex flex-col gap-8 py-8">
       <Head>
         <title>{project.title}</title>
-        <meta name="description" content={project.excerpt || project.title} />
+        <meta name="description" content={project.excerpt} />
         <link
           rel="canonical"
           href={`https://rohidulislam.com/${router.asPath}`}
         />
         <meta property="og:title" content={project.title} />
-        <meta
-          property="og:desription"
-          content={project.excerpt || project.title}
-        />
+        <meta property="og:desription" content={project.excerpt} />
         <meta property="og:site_name" content="Rohid.dev" />
         <meta property="og:type" content="article" />
         <meta
