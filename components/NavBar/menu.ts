@@ -5,16 +5,16 @@ export const menu: MenuType = [
     name: "Blogs",
     href: "/blogs",
   },
+  // {
+  //   name: "Tutorials",
+  //   href: "/tutorials",
+  // },
   {
-    name: "Tutorials",
-    href: "/tutorials",
+    name: "Projects",
+    href: "/projects",
   },
   {
     name: "Tags",
     href: "/tags",
-  },
-  {
-    name: "Projects",
-    href: "/projects",
   },
 ];
