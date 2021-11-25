@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import Script from "next/script";
+import Head from "next/head";
 import Footer from "../components/Footer";
 import NavBar from "../components/NavBar";
 import ThemeProvider from "../hooks/useTheme";
@@ -12,6 +13,12 @@ const MyApp = ({ Component, pageProps }) => {
     <ThemeProvider>
       <Fragment>
         <div className="relative">
+          <Head>
+            <meta
+              name="p:domain_verify"
+              content="da944fd2f2ea44266b426027cb7b808f"
+            />
+          </Head>
           <Script
             async
             src="https://www.googletagmanager.com/gtag/js?id=G-6QZTGSP5LL"
