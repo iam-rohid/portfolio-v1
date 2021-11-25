@@ -137,11 +137,12 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     query: gql`
       query GetData {
         blogs(where: { slug: "${params.slug}" }) {
+          slug
           title
+          excerpt
           body
           createdAt
           updatedAt
-          slug
           coverPhoto {
             url
           }
