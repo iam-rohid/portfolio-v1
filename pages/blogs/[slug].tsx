@@ -27,12 +27,18 @@ const BlogPage = ({ blog, popularBlogs }) => {
           ].join(", ")}
         ></meta>
 
-        <link rel="canonical" href={router.asPath} />
+        <link
+          rel="canonical"
+          href={`https://rohidulislam.com/${router.asPath}`}
+        />
         <meta property="og:title" content={blog.title} />
         <meta property="og:desription" content={blog.excerpt || blog.title} />
         <meta property="og:site_name" content="Rohid.dev" />
         <meta property="og:type" content="article" />
-        <meta property="og:url" content={router.asPath} />
+        <meta
+          property="og:url"
+          content={`https://rohidulislam.com/${router.asPath}`}
+        />
         <meta
           name="image"
           itemProp="image"

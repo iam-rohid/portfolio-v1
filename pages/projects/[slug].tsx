@@ -16,7 +16,10 @@ const ProjectPage = ({ project }) => {
       <Head>
         <title>{project.title}</title>
         <meta name="description" content={project.excerpt || project.title} />
-        <link rel="canonical" href={router.asPath} />
+        <link
+          rel="canonical"
+          href={`https://rohidulislam.com/${router.asPath}`}
+        />
         <meta property="og:title" content={project.title} />
         <meta
           property="og:desription"
@@ -24,7 +27,10 @@ const ProjectPage = ({ project }) => {
         />
         <meta property="og:site_name" content="Rohid.dev" />
         <meta property="og:type" content="article" />
-        <meta property="og:url" content={router.asPath} />
+        <meta
+          property="og:url"
+          content={`https://rohidulislam.com/${router.asPath}`}
+        />
         <meta
           name="image"
           itemProp="image"
