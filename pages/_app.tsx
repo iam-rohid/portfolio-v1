@@ -1,5 +1,4 @@
 import React, { Fragment } from "react";
-import Script from "next/script";
 import Head from "next/head";
 import Footer from "../components/Footer";
 import NavBar from "../components/NavBar";
@@ -14,31 +13,24 @@ const MyApp = ({ Component, pageProps }) => {
       <Fragment>
         <div className="relative">
           <Head>
-            <meta
-              name="p:domain_verify"
-              content="da944fd2f2ea44266b426027cb7b808f"
-            />
-          </Head>
-          <Script
-            async
-            src="https://www.googletagmanager.com/gtag/js?id=G-6QZTGSP5LL"
-            strategy="beforeInteractive"
-          />
-
-          <Script id="google-analytics" strategy="beforeInteractive">
-            {`
+            <script
+              async
+              src="https://www.googletagmanager.com/gtag/js?id=G-6QZTGSP5LL"
+            ></script>
+            <script>
+              {`
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-6QZTGSP5LL');
-            `}
-          </Script>
-          <Script
-            async
-            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322439099058988"
-            crossOrigin="anonymous"
-            strategy="beforeInteractive"
-          />
+              `}
+            </script>
+            <script
+              async
+              src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322439099058988"
+              crossOrigin="anonymous"
+            />
+          </Head>
 
           <NavBar />
           <Component {...pageProps} />
