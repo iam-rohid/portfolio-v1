@@ -51,7 +51,7 @@ const ProjectPage = ({ project }) => {
             className="absolute inset-0 object-cover"
           />
         </div>
-        <h1 className="text-4xl font-bold">{project.title}</h1>
+        <h1 className="text-4xl font-bold leading-tight">{project.title}</h1>
         {project.completedAt ? (
           <p>
             Completed on{" "}

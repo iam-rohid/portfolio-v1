@@ -69,7 +69,7 @@ const BlogPage = ({ blog, popularBlogs }) => {
               className="w-full overflow-hidden object-cover rounded-xl"
               style={{ aspectRatio: "16/9" }}
             />
-            <h1 className="text-4xl font-black leading-normal py-2">
+            <h1 className="text-4xl font-black leading-tight py-2">
               {blog.title}
             </h1>
             <p className="py-2">

@@ -25,7 +25,10 @@ const FullScreenMenu = (props: {
           {menu.map((item, i) => (
             <li key={i}>
               <Link href={item.href}>
-                <a className="text-2xl font-black py-3 pr-2 pl-10 w-full block">
+                <a
+                  className="text-2xl font-black py-3 pr-2 pl-10 w-full block"
+                  onClick={onClose}
+                >
                   {item.name}
                 </a>
               </Link>
