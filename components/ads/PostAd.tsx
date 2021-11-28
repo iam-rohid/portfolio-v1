@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 import Script from "next/script";
 
 function PostAd() {
+  return null;
   return (
     <Fragment>
       <Script

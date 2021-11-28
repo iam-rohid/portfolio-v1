@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import Script from "next/script";
 function WideAd() {
+  return null;
   return (
     <Fragment>
       <Script
