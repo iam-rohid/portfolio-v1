@@ -29,7 +29,7 @@ gtag('config', 'G-6QZTGSP5LL');
               async
               src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322439099058988"
               crossOrigin="anonymous"
-            />
+            ></script>
           </Head>
 
           <NavBar />
