@@ -16,7 +16,7 @@ const BLogsPage = ({ blogs }) => {
       </Head>
       <div>
         <div className="section-title">Blogs</div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {blogs.map((blog, i) => (
             <BlogCardLarge blog={blog} key={blog.slug} />
           ))}

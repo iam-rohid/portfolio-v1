@@ -60,30 +60,25 @@ const BlogPage = ({ blog, popularBlogs }) => {
           `}
         </script>
       </Head>
+
+      <div className="bg-gray-100 dark:bg-gray-800">
+        <div className="container pt-24 pb-8">
+          <h1 className="text-4xl font-black leading-tight">{blog.title}</h1>
+          <p className="pt-2">
+            <span>Published on </span>
+            {new Date(blog.createdAt).toLocaleDateString("en-US", {
+              weekday: "short",
+              year: "numeric",
+              month: "short",
+              day: "numeric",
+            })}
+          </p>
+        </div>
+      </div>
+
       <div className="container flex flex-col gap-16">
-        <div className="grid grid-cols-3 gap-8 py-16 z-10">
+        <div className="grid grid-cols-3 gap-8 py-8 z-10">
           <article className="col-span-3 lg:col-span-2">
-            <img
-              src={blog.coverPhoto.url}
-              alt={`${blog.title} - Cover Photo`}
-              className="w-full overflow-hidden object-cover rounded-xl"
-              style={{ aspectRatio: "16/9" }}
-            />
-            <h1 className="text-4xl font-black leading-tight py-2">
-              {blog.title}
-            </h1>
-            <p className="py-2">
-              <span>Published on </span>
-              {new Date(blog.createdAt).toLocaleDateString("en-US", {
-                weekday: "short",
-                year: "numeric",
-                month: "short",
-                day: "numeric",
-              })}
-            </p>
-            <div className="py-8">
-              <WideAd />
-            </div>
             <Markdown>{blog.body}</Markdown>
           </article>
           <aside className="col-span-3 lg:col-span-1 flex flex-col gap-16">

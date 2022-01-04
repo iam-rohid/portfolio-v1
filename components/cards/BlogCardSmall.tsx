@@ -15,13 +15,7 @@ const BlogCardSmall = (props: { blog: BlogType }) => {
     <article>
       <Link href={`/blogs/${slug}`}>
         <a className="flex flex-col gap-4 group">
-          <img
-            src={imageUrl}
-            alt={`${title} - Thumbnail`}
-            className="w-full h-full object-cover rounded-xl"
-            style={{ aspectRatio: "16/9" }}
-          />
-          <h3 className="text-xl font-bold group-hover:underline leading-normal">
+          <h3 className="text-xl font-bold group-hover:text-primary-500 leading-normal transition-colors duration-150">
             {title}
           </h3>
         </a>

@@ -17,4 +17,8 @@ export const menu: MenuType = [
     name: "Tags",
     href: "/tags",
   },
+  {
+    name: "About",
+    href: "/about",
+  },
 ];

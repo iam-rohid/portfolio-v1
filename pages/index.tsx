@@ -9,12 +9,7 @@ import SideBarBlogList from "../components/widgets/SidebarBlogList";
 import BlogCardSmall from "../components/cards/BlogCardSmall";
 import { VarticalAd, WideAd } from "../components/ads";
 
-const HomePage = ({
-  recentBlogs,
-  popularBlogs,
-  featuredBlogs,
-  popularTags,
-}) => {
+const HomePage = ({ recentBlogs, popularBlogs, popularTags }) => {
   return (
     <main className="flex flex-col gap-20 md:gap-8 py-8 md:py-16">
       <Head>
@@ -28,25 +23,14 @@ const HomePage = ({
           content="Rohid, Rohidul Islam, Rohidul, rohid.dev, Dev, Developer, Portfolio, Developer Portfolio, React Developer, Blog"
         />
       </Head>
-      <section className="container">
-        <div className="section-title">Featured Blogs</div>
-        <div className="grid col-span-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-          {featuredBlogs.map((blog) => (
-            <BlogCardSmall blog={blog} key={blog.slug} />
-          ))}
-        </div>
-        <div className="mt-16"></div>
-        <WideAd />
-      </section>
+
       <div className="grid grid-cols-3 container gap-8">
         <div className="col-span-3 md:col-span-2">
           <RecentlyPublished blogs={recentBlogs} />
         </div>
-        <div className="col-span-3 md:col-span-1 gap-8 flex flex-col">
+        <div className="col-span-3 md:col-span-1 gap-16 flex flex-col">
           <SideBarTagList tags={popularTags} title="Popular Tags" />
-          <VarticalAd />
           <SideBarBlogList blogs={popularBlogs} title="Popular Blogs" />
-          <VarticalAd />
         </div>
       </div>
       <div className="mt-16"></div>
@@ -61,7 +45,7 @@ export const getStaticProps: GetStaticProps = async () => {
   } = await client.query({
     query: gql`
       query GetData {
-        blogs(orderBy: createdAt_DESC, first: 4) {
+        blogs(orderBy: createdAt_DESC, first: 10) {
           slug
           title
           excerpt
@@ -124,30 +108,10 @@ export const getStaticProps: GetStaticProps = async () => {
     `,
   });
 
-  const {
-    data: { blogs: featuredBlogs },
-  } = await client.query({
-    query: gql`
-      query GetData {
-        blogs(orderBy: updatedAt_DESC, where: { isFeatured: true }, first: 3) {
-          slug
-          title
-          excerpt
-          createdAt
-          updatedAt
-          coverPhoto {
-            url
-          }
-        }
-      }
-    `,
-  });
-
   return {
     props: {
       recentBlogs,
       popularBlogs,
-      featuredBlogs,
       popularTags,
     },
   };

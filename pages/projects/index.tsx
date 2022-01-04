@@ -14,27 +14,12 @@ const ProjectsPage = ({ projects }) => {
         <title>Projects - Rohid.dev</title>
         <meta name="description" content="All Projects form rohid.dev" />
       </Head>
-      <div className="grid grid-cols-3 gap-16">
-        <div className="col-span-2">
-          <h3 className="section-title">Projects</h3>
-
-          <div className="flex flex-col gap-16">
-            {projects.map((project: ProjectType, i) => (
-              <Fragment key={i}>
-                <ProjectCard project={project} key={i} />
-                {i % 2 == 0 && <BlogListAd />}
-              </Fragment>
-            ))}
-          </div>
-        </div>
-        <div className="col-span-1 flex flex-col gap-16">
-          <VarticalAd />
-          <PostAd />
-          <VarticalAd />
-        </div>
+      <h3 className="section-title">Projects</h3>
+      <div className="flex flex-col gap-8">
+        {projects.map((project: ProjectType, i) => (
+          <ProjectCard project={project} key={i} index={i} />
+        ))}
       </div>
-      <div className="mt-16"></div>
-      <WideAd />
     </main>
   );
 };

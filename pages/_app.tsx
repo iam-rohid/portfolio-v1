@@ -33,7 +33,9 @@ gtag('config', 'G-6QZTGSP5LL');
           </Head>
 
           <NavBar />
-          <Component {...pageProps} />
+          <div className="min-h-[95vh]">
+            <Component {...pageProps} />
+          </div>
           <Footer />
         </div>
       </Fragment>

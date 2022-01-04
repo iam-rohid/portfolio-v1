@@ -12,26 +12,20 @@ function TagPage({ tag }) {
       <Head>
         <title>#{tag.slug} - Rohid</title>
       </Head>
-      <div
-        className="w-full h-64 flex items-center justify-center"
-        style={{ backgroundColor: tag.backgroundColor.css }}
-      >
-        <h1
-          className="text-4xl font-bold text-center"
-          style={{ color: tag.foregroundColor.css }}
-        >
-          #{tag.slug}
-        </h1>
+      <div className="bg-gray-100 dark:bg-gray-800">
+        <div className="container pt-24 pb-8">
+          <h1 className="text-3xl font-bold">#{tag.slug}</h1>
+        </div>
       </div>
-      <div className="container flex flex-col gap-16 py-16">
+      <div className="container flex flex-col gap-16 py-8">
         {tag.blogs.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {tag.blogs.map((blog) => (
               <BlogCardLarge blog={blog} key={blog.slug} />
             ))}
           </div>
         ) : (
-          <p className="text-center">No Blogs found with this tag 😥</p>
+          <p className="text-center">No content found with this tag 😥</p>
         )}
       </div>
       <div className="mt-16"></div>

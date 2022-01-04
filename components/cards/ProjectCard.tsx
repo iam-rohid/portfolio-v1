@@ -4,17 +4,19 @@ import Link from "next/link";
 import { ProjectType } from "../../types/project-type";
 import { CodeIcon, ExternalLinkIcon } from "@heroicons/react/outline";
 
-const ProjectCard = (props: { project: ProjectType }) => {
-  const { project } = props;
+const ProjectCard = (props: { project: ProjectType; index: number }) => {
+  const { project, index } = props;
   return (
     <article
-      className={`group relative w-full overflow-visible items-center flex flex-col gap-8`}
+      className={`group relative w-full overflow-visible items-center flex ${
+        index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+      } gap-4 md:gap-8 flex-col`}
     >
       <Link href={`/projects/${project.slug}`} passHref>
         <a className="inset-0 absolute"></a>
       </Link>
       <Link href={`/projects/${project.slug}`} passHref>
-        <a>
+        <a className="flex-1">
           <img
             src={project.coverPhoto.url}
             alt={`${project.title} - Thumbnail`}
@@ -24,9 +26,9 @@ const ProjectCard = (props: { project: ProjectType }) => {
         </a>
       </Link>
       <div
-        className={`flex flex-col w-full z-10 pointer-events-none text-left`}
+        className={`flex flex-col w-full z-10 pointer-events-none text-left flex-1`}
       >
-        <h3 className="text-lg md:text-3xl leading-normal font-bold group-hover:underline">
+        <h3 className="text-xl md:text-2xl leading-normal font-bold group-hover:text-primary-500 transition-all duration-150">
           {project.title}
         </h3>
         {project.excerpt && (

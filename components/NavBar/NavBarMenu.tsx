@@ -9,7 +9,7 @@ const NavBarMenu = (props: { menu: MenuType }) => {
   const router = useRouter();
 
   return (
-    <ul className="flex flex-row h-full gap-4">
+    <ul className="flex flex-row h-full gap-8">
       {menu.map((item, i) => (
         <NavMenuButton
           key={i}

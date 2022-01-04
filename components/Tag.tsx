@@ -7,7 +7,7 @@ const Tag = (props: { tag: TagType; size: "sm" | "md" | "lg" }) => {
   return (
     <Link key={tag.slug} href={`/tags/${tag.slug}`} passHref>
       <a
-        className={`hover:brightness-110 active:brightness-90 ${
+        className={`hover:brightness-110 active:brightness-90 font-bold ${
           size === "sm"
             ? "px-2.5 py-1 rounded-md text-sm"
             : size == "md"
